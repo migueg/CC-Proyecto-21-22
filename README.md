@@ -1,8 +1,14 @@
 # CC-Proyecto-21-22
 
-Este repositorio contiene el proyecto realizado para las prácticas de la asignatura *Cloud Computing del Máster de Ingeniería Informática de la UGR* por @migueg 
+Este repositorio contiene el proyecto realizado para las prácticas de la asignatura *Cloud Computing del Máster de Ingeniería Informática de la UGR* por @migueg.
 
 
+## Contenidos
+
+* [Descripción del proyecto](#item1)
+* [Documentación adicional](#Additional)
+
+<a name="item1"></a>
 ## Descripción del proyecto 
 
 ### Contexto
@@ -34,6 +40,7 @@ Por último los clientes podrán realizar los pagos de las comandas o de las se�
 La aplicación beneficiará fundamentalmente a los propietarios hosteleros ya que podrán prever de una manera más adecuada el volumen de demanda y facilitar tareas tan simples como la gestión de reservas o pedidos. Por otro lado, los clientes también se verán beneficiados ya que podrán acceder a una oferta más amplia, realizar reservas de manera sencilla y reducir tiempos de espera mediante el pedido de comandas.  
 
 
+<a name="Additional"></a>
 ## Documentación Adicional
 
 En esta sección se muestra documentación adicional al proyecto que ha sido relevante para el desarrollo del mismo. Se explicará lo siguiente:
