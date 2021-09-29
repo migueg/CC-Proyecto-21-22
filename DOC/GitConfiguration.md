@@ -30,7 +30,7 @@ $ ssh-keygen -t ed25519 -C "miguegarciatenorio@gmail.com"
 
 Esto nos generará el par de claves a partir del correo configurado y las almacenará en ficheros 
 
-![Generación claves](IMG/ssh.png)
+![Generación claves](/IMG/ssh.png)
 
 A continuación será necesario añadir las claves al agente ssh. Para ello entraremos en modo superusuario con la orden:
 
@@ -50,11 +50,11 @@ $ ssh-add /home/migue/.ssh/id_ed25519
 ```
 Finalmente, tendremos que añadir la clave pública a nuestra cuenta de GitHub para que se nos pueda autenticar como usuarios vía ssh. Para ello, en nuestro perfil de GitHub nos iremos al apartado de *Settings* y dentro de este al apartado *SSH and GPG keys*. Pulsaremos en el botón *New ssh key* y añadiremos la clave pública que en mi caso se encuentra en el fichero */home/migue/.ssh/id_ed25519.pub*
 
-![clave pública](IMG/publickey.png)
+![clave pública](/IMG/publickey.png)
 
 Una vez añadida nos aparecerá en nuestra cuenta de Github:
 
-![ssh](IMG/sshgithub.png)
+![ssh](/IMG/sshgithub.png)
 
 
 Para comprobar que el proceso se ha hecho de manera adecuada, haremos una prueba de conexión mediante ssh, ejecutando la orden:
@@ -65,5 +65,5 @@ $ ssh -T git@github.com
 
 Ejecutada la orden nos pedirá la contraseña con la que firmamos las claves, ya que en el momento de generación de claves se requirió un contraseña. Si todo va bien, no dirá que hemos sido autenticados con éxito
 
-![conexión](IMG/conexion.png)
+![conexión](/IMG/conexion.png)
 
