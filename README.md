@@ -2,11 +2,13 @@
 
 Este repositorio contiene el proyecto realizado para las prácticas de la asignatura *Cloud Computing del Máster de Ingeniería Informática de la UGR* por @migueg.
 
+>Versión 1.0
 
 ## Contenidos
 
 * [Descripción del proyecto](#item1)
 * [Documentación adicional](#Additional)
+
 
 <a name="item1"></a>
 ## Descripción del proyecto 
