@@ -51,4 +51,4 @@ El proyecto se llamará **YORESERVO**
 En esta sección se muestra documentación adicional al proyecto que ha sido relevante para el desarrollo del mismo. Se explicará lo siguiente:
 
 1. [Configuración de git](/DOC/GitConfiguration.md)
-2. [Licencia](/DOC/license.md)
+2. [Licencia](/LICENSE)
