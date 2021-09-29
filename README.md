@@ -41,6 +41,9 @@ Por último los clientes podrán realizar los pagos de las comandas o de las se�
 
 La aplicación beneficiará fundamentalmente a los propietarios hosteleros ya que podrán prever de una manera más adecuada el volumen de demanda y facilitar tareas tan simples como la gestión de reservas o pedidos. Por otro lado, los clientes también se verán beneficiados ya que podrán acceder a una oferta más amplia, realizar reservas de manera sencilla y reducir tiempos de espera mediante el pedido de comandas.  
 
+### Nombre del proyecto
+
+El proyecto se llamará **YORESERVO**
 
 <a name="Additional"></a>
 ## Documentación Adicional
