@@ -47,15 +47,5 @@ La aplicación beneficiará fundamentalmente a los propietarios hosteleros ya qu
 
 En esta sección se muestra documentación adicional al proyecto que ha sido relevante para el desarrollo del mismo. Se explicará lo siguiente:
 
-1. Configuración de git
-	* Configuración de correo y usuario
-	* Configuración de clave pública y privada
-	
-### Configuración de git
-
-#### Configuración de correo y usuario
-
-
-#### Configuración de clave pública y privada
-
-### Licencia
+1. [Configuración de git](/DOC/GitConfiguration.md)
+2. [Licencia](/DOC/license.md)
