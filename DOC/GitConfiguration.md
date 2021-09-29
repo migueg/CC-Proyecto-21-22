@@ -40,7 +40,7 @@ $ sudo -s -H
 Seguidamente, iniciaremos el agente ssh  en segundo plano ejecutando:
 
 ```console
-eval "$(ssh-agent -s)"
+$ eval "$(ssh-agent -s)"
 ```
 
 Una vez iniciado, agregaremos la clave privada generada anteriormente (que se encuentra almacenada en un fichero de nuestro sistema) al agente ssh con la orden:
