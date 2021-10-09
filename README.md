@@ -34,7 +34,10 @@ Por otra parte, decidir que se va a consumir en estos establecimientos puede dem
 
 Para resolver estos problemas se propone una aplicación web/móvil en la que los clientes de la hostelería puedan consultar la oferta de establecimientos disponibles en un determinado sitio, consultar la disponibilidad de mesas y realizar una reserva, pudiendo elegir la mesa que se desea, así como el horario de llegada de la reserva. Una vez realizada la reserva, se podrá consultar la carta y realizar una comanda, incluso elegir a que hora quieres recibir la comanda para reducir los tiempos de espera.  
 Por otra parte el personal de los establecimientos hosteleros podrá gestionar las reservas programadas, así como integrar el sistema con el sistema de comandas que utilicen en sus establecimientos, de manera que puedan recibir las comandas ordenadas por los usuarios a través de la aplicación.  
-Por último los clientes podrán realizar los pagos de las comandas o de las señales de las reservas (si se requiriera) a través de la aplicación.  
+Además, los clientes podrán realizar los pagos de las comandas o de las señales de las reservas (si se requiriera) a través de la aplicación.  
+
+Los reservas que realicen los clientes, así como los pedidos que realicen, se almacenarán durante un tiempo para relaizar labores estadísticas y poder obtener tendencias entre los usuarios y datos que pudieran serde ayuda para los empresarios hosteleros, como que tipo de restaurantes son elegidos con más frecuencia por los usuarios en determinadas zonas, que platos son los favoritos entre los usuarios etc... Estos datos serán procesados y almacenados para vendérselos tanto a los propietarios de los establecimientos hosteleros, como a terceras partes interesadas en estos datos.  
+
 
 ### ¿ A quién beneficia?
 
