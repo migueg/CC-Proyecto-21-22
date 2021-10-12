@@ -66,7 +66,7 @@ A continuación, se presentarán una serie de escenarios que puedan darse al usa
 
 A partir de la definición de los roles y una serie de escenarios posibles se extraen las historias de usuario:
 
-* [HU1 - Como cliente, necesito consultar los establecimientos disponibles en una ciudad para conocer a donde puedo ir ](#1)
+* [HU1 - Como cliente, necesito consultar los establecimientos disponibles en una ciudad para conocer a donde puedo ir ] #1
 * [HU2 - Como cliente, necesito realizar una reserva en un establecimiento para ir a cenar con mis amigos](#2)
 * [HU3 - Como cliente con reserva, necesito realizar una comanda](#3)
 * [HU4 - Como cliente con reserva, necesito pagar una comanda](#4)
