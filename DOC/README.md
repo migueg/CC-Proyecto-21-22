@@ -1,3 +1,3 @@
-# Documentación 
+# Documentación
 
-Esta sección contendrá la documentación adicional del proyect
+Esta sección contendrá la documentación adicional del proyecto

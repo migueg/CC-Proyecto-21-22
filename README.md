@@ -2,56 +2,124 @@
 
 Este repositorio contiene el proyecto realizado para las prácticas de la asignatura *Cloud Computing del Máster de Ingeniería Informática de la UGR* por @migueg.
 
->Versión 0.1
+>Versión 1.0
 
-## Contenidos
+## Hito 1
 
-* [Descripción del proyecto](#item1)
-* [Documentación adicional](#Additional)
-
-
-<a name="item1"></a>
-## Descripción del proyecto 
-
-### Contexto
+Una vez conocido el proyecto a realizar (ver [[Hito 0](/DOC/Hitos/hito0.md)]), se procederá a definir lo siguiente:
 
 
-La pandemia del COVID19 ha supuesto muchos cambios en nuestra sociedad. Dichos cambios, buenos o malos, nos han mostrado que es posible adaptar nuestra manera de vivir a las circunstancias adversas sin que esto suponga un grave problema. Las nuevas tecnologías han ayudado a que estos cambios no sean tan drásticos. Gracias a las nuevas tecnologías, múltiples sectores han podido continuar con su actividad, acelerando aún más la transición digital de estos. Sin embargo, otros sectores no han tenido esa capacidad de adaptación ya que nunca se había planteado un problema similar.  
-
- 
-La hostelería ha sido de los sectores más perjudicados por la pandemia. Las limitaciones han repercutido directamente a su actividad arrojando problemas en esa transición digital que otros sectores han podido realizar. Por lo tanto, este proyecto se centrará en dar solución a un problema existente en el sector hostelero.  
-
-
-
-### Descripción del problema
-
-Las limitaciones en el aforo han generado que se haga imprescindible realizar una reserva para poder disfrutar de un establecimiento hostelero, convirtiéndose en una costumbre que se ha generalizado a la gran totalidad de los clientes. A pesar de los medios a nuestra disposición, la mayoría de las reservas se realizan de manera telefónica. No existe un sistema o aplicación generalizado donde se pueda realizar una reserva en un restaurante o simplemente realizar una consulta de la disponibilidad de mesas para un determinado sitio. Una tarea tan simple como realizar una reserva puede ser a veces tedioso, ya que dependemos de que nos conteste al teléfono.  
-Por otra parte, decidir que se va a consumir en estos establecimientos puede demorarnos mucho tiempo, ya que no conocemos la carta de antemano o nos encontramos indecisos, y eso sumado a retrasos en cocina o del personal puede prolongar nuestra estancia más de lo deseado en el establecimiento.  
+* [Roles](#roles)
+* [Escenarios](#escenarios)
+* [Historias de usuario](#historias)
+* [Milestones](#milestones)
 
 
-### Solución propuesta
+<a name="roles"></a>
+### Roles
+
+A continuación, se definirán los distintos roles que existirán en el sistema:
+
+* **Cliente**: El rol cliente se corresponde con los posibles clientes de los establecimientos hosteleros. Este tipo de usuarios podrán buscar establecimiento, realizar una reserva y comandas, así como modificar su información personal. Estos usuarios a nivel de sistema se distinguirán entre *clientes con reserva* y *clientes sin reserva*.
+
+* **Empleado**: El rol de empleado se corresponde con los empleados de los establecimientos que usarán la aplicación para labores de gestión como gestionar las reservas.
+
+* **Empresario**: El rol de empresario se corresponde o bien con los dueños de los establecimientos hosteleros o cualquier interesado en la información almacenada en el sistema. Un empresario puede ser a la vez dueño de un establecimiento y estar interesado en la aplicación.
 
 
-Para resolver estos problemas se propone una aplicación web/móvil en la que los clientes de la hostelería puedan consultar la oferta de establecimientos disponibles en un determinado sitio, consultar la disponibilidad de mesas y realizar una reserva, pudiendo elegir la mesa que se desea, así como el horario de llegada de la reserva. Una vez realizada la reserva, se podrá consultar la carta y realizar una comanda, incluso elegir a que hora quieres recibir la comanda para reducir los tiempos de espera.  
-Por otra parte el personal de los establecimientos hosteleros podrá gestionar las reservas programadas, así como integrar el sistema con el sistema de comandas que utilicen en sus establecimientos, de manera que puedan recibir las comandas ordenadas por los usuarios a través de la aplicación.  
-Además, los clientes podrán realizar los pagos de las comandas o de las señales de las reservas (si se requiriera) a través de la aplicación.  
 
-Los reservas que realicen los clientes, así como los pedidos que realicen, se almacenarán durante un tiempo para relaizar labores estadísticas y poder obtener tendencias entre los usuarios y datos que pudieran serde ayuda para los empresarios hosteleros, como que tipo de restaurantes son elegidos con más frecuencia por los usuarios en determinadas zonas, que platos son los favoritos entre los usuarios etc... Estos datos serán procesados y almacenados para vendérselos tanto a los propietarios de los establecimientos hosteleros, como a terceras partes interesadas en estos datos.  
+<a name="escenarios"></a>
+### Escenarios
+
+A continuación, se presentarán una serie de escenarios que puedan darse al usarse la aplicación
+
+##### Escenario 1  
+>Supongamos que Juan, de Granada, es una persona que ha descubierto YoReservo y se la ha descargado en su smartphone. Esta semana quería invitar a sus amigos a cenar por su cumpleaños y le gustaría ir a un Italiano. Le interesa que este en una zona céntrica puesto que no quieren coger el coche por si se alargara la cena. Por consiguiente, Juan entrará en la aplicación y buscará restaurantes italianos en Granada utilizando unos filtros del buscador. Cuando realice la búsqueda le aparecerá en el mapa de granada las opciones disponibles. Cuando pinche en una de ellas, podrá visualizar información del establecimiento, como la carta, el número de mesas disponibles, imágenes, así como opiniones, de otros clientes. Finalmente se decide por "Italian restaurant". Al pinchar en este le aparecerá la opción de reservar, donde podrá elegir una fecha en el calendario (siempre que este disponible). Una vez elegida la fecha, seleccionará una franja horaria, el número de personas y la mesa o mesas que desee reservar. En concreto realiza una reserva para el Viernes 15 de Octubre a las 21:30. Finalmente, una vez realizada la reserva le aparecerá disponible en la sección "Mis reservas", donde además podrá modificarla (si es que se puede).
+
+##### Escenario 2  
+>María, es empleada de "Italian restaurant". Como cada día al inicio de su jornada laboral, tiene que planificar las reservas. Para ello se mete con su usuario de YoReservo y entra en la sección reservas, seleccionando el día que corresponde. En esta sección le aparecerá una distribución de mesas y si tienen reserva aparecerán asignadas a un cliente. Lo primero que hace, es comprobar que mesas han pagado ya una comanda, puesto que esas mesas están ya confirmadas. Una vez descartadas, consultas las reservas sin comanda. La primera que se encuentra es la de Juan. Para confirmar la asistencia de Juan, María inicia un chat con el a través de un chat que se crea cuando se realiza una reserva, indicándole que tienen media hora de margen de la hora de reserva, por lo que si llegan después perderán la reserva, así que lo conveniente es que realicen una comanda antes.
+
+##### Escenario 3  
+>Juan ha recibido el mensaje de María. Aunque no esperan llegar tarde, considera que es buena idea realizar una comanda previa, ya que saben que van a pedir y así ahorran tiempo esperando. Así que Juan, entra en su reserva y pincha en comanda. Automáticamente se le mostrará la carta del restaurante donde podrá añadir o quitar productos. Una vez realizado el pedido, se le muestra el total y un botón de pagar, el cuál le redirecciona a una plataforma de pago de un banco bien conocido. Cuando realiza el pago, le redirecciona a la aplicación y se le genera un código QR en la comanda, que será el que tenga que mostrar cuando llegue al restaurante.
+
+##### Escenario 4
+> Manuel es cocinero en "Italian restaurant". Hoy viernes están completos y tiene que empezar a realizar los preparativos para el servicio. Para ello entrará con su usuario de YoReservo y consultará las comandas previstas para hoy en la sección de reservas filtrando por las que tengan comandas. La primera que le aparece es la de Juan, por lo que accede a ella y consulta los pedidos que han seleccionado y a que hora está previsto que llegue Juan y sus acompañantes.
+
+##### Escenario 5
+> Juan ha terminado la cena y está muy satisfecho con el servicio y la calidad de está, por lo que quiere dejar una valoración positiva. Así que, se meterá en su reserva y abrirá la sección de valoración, donde podrá valorar tanto al empleado que les ha atendido como al restaurante.
+
+##### Escenario 6
+
+>Francesca, es la dueña de "Italian restaurant" y hace dos meses que decidió usar YoReservo en su establecimiento por lo que quiere comprobar que efectos está teniendo en su negocio la incorporación de la aplicación y ver que va bien o que va mal. Para ello entra con su usario en la aplicación y entra en la sección informes. En esta sección le aparecerán unos informes u otros dependiendo de los que tenga contratados. En su caso tiene una subscripción completa la servicio, por lo que puede consultar todos los datos relacionados con la interacción de los clientes con el establecimiento a través de la aplicación, como las tendencias de productos, el tipo de público que elige el establecimiento etc..
+
+##### Escenario 7
+
+> Pepe tiene un restaurante de comida tradicional andaluza. Busca modernizarse por lo que decide darse de alta en el servicio de YoReservo. Para ello entrará en la web de YoReservo e irá a la sección de nuevas subscripciones. Ahí tendrá que completar un formulario donde se le pidan tanto datos legales como datos relacionados con el establecimiento como la carta etc. Una vez completado, recibirá un correo electrónico con la confirmación de la incorporación del establecimiento y con las respectivas credenciales
 
 
-### ¿ A quién beneficia?
+##### Escenario 8
+> Miguel, tiene una empresa de marketing y está realizando un estudio de negocio para unos empresarios que están buscando poner un negocio en Granada. Para ello, la empresa de Miguel necesita datos suficientes para poder realizar el estudio. Para ello se han subscrito al servicio de datos de YoReservo, que aporta datos sobre el comportamiento de los clientes en los establecimientos. La empresa de Miguel, posee un sistema para hacer minería de datos por lo que incorporaŕan los parámetros necesarios para solicitar los datos del comportamiento de los clientes y establecimientos en Granada.
 
 
-La aplicación beneficiará fundamentalmente a los propietarios hosteleros ya que podrán prever de una manera más adecuada el volumen de demanda y facilitar tareas tan simples como la gestión de reservas o pedidos. Por otro lado, los clientes también se verán beneficiados ya que podrán acceder a una oferta más amplia, realizar reservas de manera sencilla y reducir tiempos de espera mediante el pedido de comandas.  
+<a name="historias"></a>
+### Historias de Usuario
 
-### Nombre del proyecto
+A partir de la definición de los roles y una serie de escenarios posibles se extraen las historias de usuario:
 
-El proyecto se llamará **YORESERVO**
+* [HU1 - Como cliente, necesito consultar los establecimientos disponibles en una ciudad para conocer a donde puedo ir ](#1)
+* [HU2 - Como cliente, necesito realizar una reserva en un establecimiento para ir a cenar con mis amigos](#2)
+* [HU3 - Como cliente con reserva, necesito realizar una comanda](#3)
+* [HU4 - Como cliente con reserva, necesito pagar una comanda](#4)
+* [HU5 - Como empleado, necesito consultar las reservas realizadas para planificar el día](#5)
+* [HU6 - Como empleado, necesito consultar la comanda de una mesa para preparar el pedido](#6)
+* [HU7 - Como empleado, necesito escanear el código QR de la reserva de un cliente para comprobar que poseen una reserva](#7)
+* [HU8 - Como empleado, necesito contactar con un cliente para hacerle una sugerencia](#8)
+* [HU9 - Como cliente con reserva, necesito cancelar mi reserva](#9)
+* [HU10 - Como cliente con reserva, necesito modificar una comanda](#10)
+* [HU11 - Como empresario, necesito dar de alta mi establecimiento en el sistema](#11)
+* [HU12 - Como empresario, necesito modificar mi establecimiento ](#12)
+* [HU13 - Como empresario, quiero obtener un informe sobre el rendimiento de mi establecimiento](#13)
+* [HU14 - Como, empresario quiero obtener los datos de la tendencia hostelera en una ciudad para realizar un estudio de negocio](#14)
+* [HU15 - Como cliente, necesito crearme un perfil](#15)
+* [HU16 - Como cliente necesito valorar a un establecimiento y un empleado](#31)
+* [H17 - Como empleado necesito valorar a un cliente](#32)
 
-<a name="Additional"></a>
-## Documentación Adicional
+A partir de estas historias de usuario, se crean las primeras tareas o issues:
 
-En esta sección se muestra documentación adicional al proyecto que ha sido relevante para el desarrollo del mismo. Se explicará lo siguiente:
+* [Crear la entidad establecimiento](#16)
+* [Crear la entidad carta](#17)
+* [Crear la entidad comanda](#18)
+* [Crear la entidad reserva](#19)
+* [Crear la entidad cliente](#20)
+* [Crear la entidad empleado](#21)
+* [Hay que crear el flujo de reservas](#22)
+* [Hay que resolver el problema de simultaneidad de reservas](#23)
+* [Hay que resolver la generación de informes](#24)
+* [Hay que generar un código QR](#25)
+* [Hay que resolver la gestión de pago](#26)
+* [Hay que crear el flujo de comandas](#27)
+* [Hay que resolver el escaneo de un QR](#28)
+* [Hay que resolver el problema de sincronización en un chat](#29)
+* [Hay que crear una API para los empresarios](#30)
+* [Hay que mandar un correo electrónico cuando un establecimiento este dado de alta](#33)
+* [Hay que gestionar los permisos de la API](#34)
 
-1. [Configuración de git](/DOC/GitConfiguration.md)
-2. [Licencia](/LICENSE)
+<a name="milestones"></a>
+### Milestones
+
+Las historias de usuario y sus respectivas tareas será agrupadas en los siguientes Milestones:
+
+* [Hito 1 - General](https://github.com/migueg/CC-Proyecto-21-22/milestone/1)
+* [Hito 2 - Reservas](https://github.com/migueg/CC-Proyecto-21-22/milestone/2)
+* [Hito 3 - Comandas](https://github.com/migueg/CC-Proyecto-21-22/milestone/3)
+* [Hito 4 - Pagos](https://github.com/migueg/CC-Proyecto-21-22/milestone/4)
+* [Hito 5 - Informes](https://github.com/migueg/CC-Proyecto-21-22/milestone/5)
+* [Hito 6 - Usuarios y establecimientos](https://github.com/migueg/CC-Proyecto-21-22/milestone/6)
+* [Hito 7 - API](https://github.com/migueg/CC-Proyecto-21-22/milestone/7)
+* [Hito 8 - Chats y valoraciones](https://github.com/migueg/CC-Proyecto-21-22/milestone/8)
+
+## Anteriores Hitos
+
+La documentación relacionada con hitos anteriores se podrá consultar a través de los siguientes enlaces:
+
+* [Hito 0](/DOC/Hitos/hito0.md)
