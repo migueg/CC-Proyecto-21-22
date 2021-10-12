@@ -2,7 +2,7 @@
 
 Este repositorio contiene el proyecto realizado para las prácticas de la asignatura *Cloud Computing del Máster de Ingeniería Informática de la UGR* por @migueg.
 
->Versión 1.0
+>Versión 1.0.1
 
 ## Hito 1
 
@@ -66,43 +66,43 @@ A continuación, se presentarán una serie de escenarios que puedan darse al usa
 
 A partir de la definición de los roles y una serie de escenarios posibles se extraen las historias de usuario:
 
-* [HU1 - Como cliente, necesito consultar los establecimientos disponibles en una ciudad para conocer a donde puedo ir ] #1
-* [HU2 - Como cliente, necesito realizar una reserva en un establecimiento para ir a cenar con mis amigos](#2)
-* [HU3 - Como cliente con reserva, necesito realizar una comanda](#3)
-* [HU4 - Como cliente con reserva, necesito pagar una comanda](#4)
-* [HU5 - Como empleado, necesito consultar las reservas realizadas para planificar el día](#5)
+* [HU1 - Como cliente, necesito consultar los establecimientos disponibles en una ciudad para conocer a donde puedo ir ](https://github.com/migueg/CC-Proyecto-21-22/issues/1)
+* [HU2 - Como cliente, necesito realizar una reserva en un establecimiento para ir a cenar con mis amigos](https://github.com/migueg/CC-Proyecto-21-22/issues/2)
+* [HU3 - Como cliente con reserva, necesito realizar una comanda](https://github.com/migueg/CC-Proyecto-21-22/issues/3)
+* [HU4 - Como cliente con reserva, necesito pagar una comanda](https://github.com/migueg/CC-Proyecto-21-22/issues/4)
+* [HU5 - Como empleado, necesito consultar las reservas realizadas para planificar el día](https://github.com/migueg/CC-Proyecto-21-22/issues/5)
 * [HU6 - Como empleado, necesito consultar la comanda de una mesa para preparar el pedido](#6)
-* [HU7 - Como empleado, necesito escanear el código QR de la reserva de un cliente para comprobar que poseen una reserva](#7)
-* [HU8 - Como empleado, necesito contactar con un cliente para hacerle una sugerencia](#8)
-* [HU9 - Como cliente con reserva, necesito cancelar mi reserva](#9)
-* [HU10 - Como cliente con reserva, necesito modificar una comanda](#10)
-* [HU11 - Como empresario, necesito dar de alta mi establecimiento en el sistema](#11)
-* [HU12 - Como empresario, necesito modificar mi establecimiento ](#12)
-* [HU13 - Como empresario, quiero obtener un informe sobre el rendimiento de mi establecimiento](#13)
-* [HU14 - Como, empresario quiero obtener los datos de la tendencia hostelera en una ciudad para realizar un estudio de negocio](#14)
-* [HU15 - Como cliente, necesito crearme un perfil](#15)
-* [HU16 - Como cliente necesito valorar a un establecimiento y un empleado](#31)
-* [H17 - Como empleado necesito valorar a un cliente](#32)
+* [HU7 - Como empleado, necesito escanear el código QR de la reserva de un cliente para comprobar que poseen una reserva](https://github.com/migueg/CC-Proyecto-21-22/issues/7)
+* [HU8 - Como empleado, necesito contactar con un cliente para hacerle una sugerencia](https://github.com/migueg/CC-Proyecto-21-22/issues/8)
+* [HU9 - Como cliente con reserva, necesito cancelar mi reserva](https://github.com/migueg/CC-Proyecto-21-22/issues/9)
+* [HU10 - Como cliente con reserva, necesito modificar una comanda](https://github.com/migueg/CC-Proyecto-21-22/issues/10)
+* [HU11 - Como empresario, necesito dar de alta mi establecimiento en el sistema](https://github.com/migueg/CC-Proyecto-21-22/issues/111)
+* [HU12 - Como empresario, necesito modificar mi establecimiento ](https://github.com/migueg/CC-Proyecto-21-22/issues/12)
+* [HU13 - Como empresario, quiero obtener un informe sobre el rendimiento de mi establecimiento](https://github.com/migueg/CC-Proyecto-21-22/issues/13)
+* [HU14 - Como, empresario quiero obtener los datos de la tendencia hostelera en una ciudad para realizar un estudio de negocio](https://github.com/migueg/CC-Proyecto-21-22/issues/14)
+* [HU15 - Como cliente, necesito crearme un perfil](https://github.com/migueg/CC-Proyecto-21-22/issues/15)
+* [HU16 - Como cliente necesito valorar a un establecimiento y un empleado](https://github.com/migueg/CC-Proyecto-21-22/issues/31)
+* [H17 - Como empleado necesito valorar a un cliente](https://github.com/migueg/CC-Proyecto-21-22/issues/32)
 
 A partir de estas historias de usuario, se crean las primeras tareas o issues:
 
-* [Crear la entidad establecimiento](#16)
-* [Crear la entidad carta](#17)
-* [Crear la entidad comanda](#18)
-* [Crear la entidad reserva](#19)
-* [Crear la entidad cliente](#20)
-* [Crear la entidad empleado](#21)
-* [Hay que crear el flujo de reservas](#22)
-* [Hay que resolver el problema de simultaneidad de reservas](#23)
-* [Hay que resolver la generación de informes](#24)
-* [Hay que generar un código QR](#25)
-* [Hay que resolver la gestión de pago](#26)
-* [Hay que crear el flujo de comandas](#27)
-* [Hay que resolver el escaneo de un QR](#28)
-* [Hay que resolver el problema de sincronización en un chat](#29)
-* [Hay que crear una API para los empresarios](#30)
-* [Hay que mandar un correo electrónico cuando un establecimiento este dado de alta](#33)
-* [Hay que gestionar los permisos de la API](#34)
+* [Crear la entidad establecimiento](https://github.com/migueg/CC-Proyecto-21-22/issues/16)
+* [Crear la entidad carta](https://github.com/migueg/CC-Proyecto-21-22/issues/17)
+* [Crear la entidad comanda](https://github.com/migueg/CC-Proyecto-21-22/issues/18)
+* [Crear la entidad reserva](https://github.com/migueg/CC-Proyecto-21-22/issues/19)
+* [Crear la entidad cliente](https://github.com/migueg/CC-Proyecto-21-22/issues/20)
+* [Crear la entidad empleado](https://github.com/migueg/CC-Proyecto-21-22/issues/21)
+* [Hay que crear el flujo de reservas](https://github.com/migueg/CC-Proyecto-21-22/issues/22)
+* [Hay que resolver el problema de simultaneidad de reservas](https://github.com/migueg/CC-Proyecto-21-22/issues/23)
+* [Hay que resolver la generación de informes](https://github.com/migueg/CC-Proyecto-21-22/issues/24)
+* [Hay que generar un código QR](https://github.com/migueg/CC-Proyecto-21-22/issues/25)
+* [Hay que resolver la gestión de pago](https://github.com/migueg/CC-Proyecto-21-22/issues/26)
+* [Hay que crear el flujo de comandas](https://github.com/migueg/CC-Proyecto-21-22/issues/27)
+* [Hay que resolver el escaneo de un QR](https://github.com/migueg/CC-Proyecto-21-22/issues/28)
+* [Hay que resolver el problema de sincronización en un chat](https://github.com/migueg/CC-Proyecto-21-22/issues/29)
+* [Hay que crear una API para los empresarios](https://github.com/migueg/CC-Proyecto-21-22/issues/30)
+* [Hay que mandar un correo electrónico cuando un establecimiento este dado de alta](https://github.com/migueg/CC-Proyecto-21-22/issues/33)
+* [Hay que gestionar los permisos de la API](https://github.com/migueg/CC-Proyecto-21-22/issues/34)
 
 <a name="milestones"></a>
 ### Milestones
