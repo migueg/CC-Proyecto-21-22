@@ -1,0 +1,11 @@
+
+Establecimiento : src/establishment.ts
+Distribucion:  src/distribution.ts
+Reserva: src/reserve.ts
+Cliente: src/client.ts
+API: src/bussinessAPI.ts
+Carta: src/letter.ts
+Empleado: src/empleado.ts
+Informe: src/report.ts
+Pedido: src/order.ts
+Buscador: src/finder.ts
