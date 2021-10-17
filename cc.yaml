@@ -9,3 +9,4 @@ Empleado: src/empleado.ts
 Informe: src/report.ts
 Pedido: src/order.ts
 Buscador: src/finder.ts
+
