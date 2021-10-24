@@ -1,6 +1,6 @@
 
 export declare module cvSchemas{
-    export type eductaion = {
+    export type education = {
         name: string;
         location: string;
         institution: string;
@@ -36,7 +36,7 @@ export declare module cvSchemas{
         address?: string;
         description?: string;
         job?: string;
-        education?: Array<eductaion>;
+        education?: Array<education>;
         competences?: Array<competences>;
         experience?: Array<experience>;
         image?: string;
