@@ -2,7 +2,7 @@
 
 Este repositorio contiene el proyecto realizado para las prácticas de la asignatura *Cloud Computing del Máster de Ingeniería Informática de la UGR* por @migueg.
 
->Versión 1.0.1
+>Versión 1.1.1
 
 ## Lógica de negocio
 
