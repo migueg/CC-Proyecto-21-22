@@ -1,5 +1,5 @@
 # Hito0
-
+>Versión 0.1.0
 ## Contenidos
 
 * [Descripción del proyecto](#item1)
@@ -9,40 +9,31 @@
 <a name="item1"></a>
 ## Descripción del proyecto
 
-### Contexto
-
-
-La pandemia del COVID19 ha supuesto muchos cambios en nuestra sociedad. Dichos cambios, buenos o malos, nos han mostrado que es posible adaptar nuestra manera de vivir a las circunstancias adversas sin que esto suponga un grave problema. Las nuevas tecnologías han ayudado a que estos cambios no sean tan drásticos. Gracias a las nuevas tecnologías, múltiples sectores han podido continuar con su actividad, acelerando aún más la transición digital de estos. Sin embargo, otros sectores no han tenido esa capacidad de adaptación ya que nunca se había planteado un problema similar.  
-
-
-La hostelería ha sido de los sectores más perjudicados por la pandemia. Las limitaciones han repercutido directamente a su actividad arrojando problemas en esa transición digital que otros sectores han podido realizar. Por lo tanto, este proyecto se centrará en dar solución a un problema existente en el sector hostelero.  
-
-
-
 ### Descripción del problema
 
-Las limitaciones en el aforo han generado que se haga imprescindible realizar una reserva para poder disfrutar de un establecimiento hostelero, convirtiéndose en una costumbre que se ha generalizado a la gran totalidad de los clientes. A pesar de los medios a nuestra disposición, la mayoría de las reservas se realizan de manera telefónica. No existe un sistema o aplicación generalizado donde se pueda realizar una reserva en un restaurante o simplemente realizar una consulta de la disponibilidad de mesas para un determinado sitio. Una tarea tan simple como realizar una reserva puede ser a veces tedioso, ya que dependemos de que nos conteste al teléfono.  
-Por otra parte, decidir que se va a consumir en estos establecimientos puede demorarnos mucho tiempo, ya que no conocemos la carta de antemano o nos encontramos indecisos, y eso sumado a retrasos en cocina o del personal puede prolongar nuestra estancia más de lo deseado en el establecimiento.  
+Imagina que has acabado un grado universitario, o se te ha acabado un contrato de trabajo. Es el momento de buscar un trabajo, pero ¿como y donde buscamos?. Muchos no hemos encontrado en esa situación de incertidumbre. Existen multitud de plataformas de empleo donde encontrar numerosas ofertas pero muchas de ellas, no concuerdan con lo que buscamos o simplemente no son para nosotros. Internet nos facilita la vida, pero también provoca un exceso de información que pueda hacer difícil hacer una buena selección y encontrar aquella información o en este caso ofertas de trabajo que podrían encajar con nosotros o que pudiéramos tener posibilidades y así optimizar nuestra selección.
+Por otra parte, una vez inmersos en proceso de selección no somos validos para el puesto o simplemente no encajamos, o aceptamos la primera oferta por "miedo a no tener mas". Por lo tanto la gran pregunta es ¿Como puedo buscar trabajo de manera eficiente y acertada?
 
+### Lógica de negocio
 
-### Solución propuesta
+La solución propuesta para resolver este problema es la creación de un sistema que recibirá curriculums de usuarios y le ofrecerá una listado de ofertas que sean compatibles y afines con los usuarios, es decir el sistema predecirá en que puestos tienen mas posibilidades para entrar y encajar.Para ello el sistema convertirá la información de los curriculums a un formato  JSON. De esos curriculums convertidos, se extraerán palabras clave que serán usadas para obtener un listado de empleos de diferentes APIS ofrecidas por plataformas como Indeed, Glasdoor o Linkedin.
+Paralelamente a esto se realizará un proceso de web scraping sobre perfiles de plataformas como Linkedin, Indeed o Glasdoor para aumentar mas la fuente de conocimiento para que el resultado del proceso sea más adecuado.  
 
+Una vez obtenido un listado amplio de empleos, mediante un algoritmo  se usará la información de los curriculums y la base datos obtenida del web scramping para clasificar las ofertas en función de la compatibilidad que puedan tener los candidatos con estas
 
-Para resolver estos problemas se propone una aplicación web/móvil en la que los clientes de la hostelería puedan consultar la oferta de establecimientos disponibles en un determinado sitio, consultar la disponibilidad de mesas y realizar una reserva, pudiendo elegir la mesa que se desea, así como el horario de llegada de la reserva. Una vez realizada la reserva, se podrá consultar la carta y realizar una comanda, incluso elegir a que hora quieres recibir la comanda para reducir los tiempos de espera.  
-Por otra parte el personal de los establecimientos hosteleros podrá gestionar las reservas programadas, así como integrar el sistema con el sistema de comandas que utilicen en sus establecimientos, de manera que puedan recibir las comandas ordenadas por los usuarios a través de la aplicación.  
-Además, los clientes podrán realizar los pagos de las comandas o de las señales de las reservas (si se requiriera) a través de la aplicación.  
-
-Los reservas que realicen los clientes, así como los pedidos que realicen, se almacenarán durante un tiempo para realizar labores estadísticas y poder obtener tendencias entre los usuarios y datos que pudieran ser de ayuda para los empresarios hosteleros, como que tipo de restaurantes son elegidos con más frecuencia por los usuarios en determinadas zonas, que platos son los favoritos entre los usuarios etc... Estos datos serán procesados y almacenados para vendérselos tanto a los propietarios de los establecimientos hosteleros, como a terceras partes interesadas en estos datos.  
-
+El resultado de este procesamiento será una lista de afinidad de ofertas de manera que el usuario podrá ver como de afín es a esa oferta y más información como salarios, de donde es la gente que ha trabaja ahí, nivel de satisfacción etc..
 
 ### ¿ A quién beneficia?
 
+ El sistema beneficiaría a:
 
-La aplicación beneficiará fundamentalmente a los propietarios hosteleros ya que podrán prever de una manera más adecuada el volumen de demanda y facilitar tareas tan simples como la gestión de reservas o pedidos. Por otro lado, los clientes también se verán beneficiados ya que podrán acceder a una oferta más amplia, realizar reservas de manera sencilla y reducir tiempos de espera mediante el pedido de comandas.  
+ 1. Solicitantes de empleo, que podrán obtener una ofertas afines a sus cualidad y por lo tanto aumentar sus posibilidades de encontrar trabajo.
+ 2. Plataformas de empleo. Cualquier plataforma de empleo que proporcione una API se verá beneficiada porque podrá aumentar su tráfico de usuarios a partir de este sistema.
+ 3. Empresas. Las empresas obtendrán candidatos más afines a sus requerimientos gracias al sistema, simplificando y abaratando las tareas de reclutamiento.
 
 ### Nombre del proyecto
 
-El proyecto se llamará **YORESERVO**
+El proyecto se llamará **WorkWith**
 
 <a name="Additional"></a>
 ## Documentación Adicional
