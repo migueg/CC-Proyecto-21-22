@@ -38,7 +38,7 @@ A continuación, se realiza una planificación del proyecto en distintos milesto
 
 ### Estructura inicial
 
-Inicialmente se define el esqueleto del sistema, que contendrá las siguientes entidades o clases:
+Se utilizará typescript como lenguaje principal para el desarrollo. Inicialmente se define el esqueleto del sistema, que contendrá las siguientes entidades o clases:
 
 - **Finder**: Su responsabilidad será obtener las ofertas de trabajo de las distintas APIs externas. Estará definida el fichero [finder.ts](https://github.com/migueg/CC-Proyecto-21-22/blob/main/src/finder.ts)
 - **Clasificator**: Su responsabilidad será determinar y clasificar las ofertas de trabajo según a criterios de compatibilidad con el usuario. Estará definido el fichero [clasificator.ts](https://github.com/migueg/CC-Proyecto-21-22/blob/main/src/clasificator.ts)
