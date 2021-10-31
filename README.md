@@ -2,57 +2,36 @@
 
 Este repositorio contiene el proyecto realizado para las prácticas de la asignatura *Cloud Computing del Máster de Ingeniería Informática de la UGR* por @migueg.
 
->Versión 1.0.1
+>Versión 2.0.0
 
 ## Lógica de negocio
 
 La lógica de negocio que va a comprender la solución propuesta puede consultarte en [Lógica de negocio](/DOC/Hitos/hito0.md).
 
-## Hito 1
 
-<a name="escenarios"></a>
-### User Journey
+## Hito 2
 
-Los [User Journey](/DOC/UserJourney.md) describen la interacción de los usuarios con el sistema.
+A continuación, se describe el proceso realizado para llevar a cabo el hito 2
 
-### Historias de usuarios
+### Gestor de tareas : NPM
 
-A partir de los user journey y el problema planteado, inicialmente, se definen las siguientes historias de usuario:
+Puesto que el lenguaje principal del sistema es typescript, y se necesita un framework de test, se debe usar como entorno de ejecución Node.js. Por lo tanto, se elige **NPM** como gestor de tareas. En realidad, npm es un sistema de gestión de paquetes para manejar las dependencias del sistema. Sin embargo, npm no es un sistema de gestión de paquetes común, ya que también se puede comportar, en determinados casos, como un gestor de tareas.  
+En el package.json se le puede indicar una serie de scripts que se pueden ejecutar utilizando **npm**. En el caso de nuestro sistema, esta característica nos permitirá lanzar los test de nuestro sistema simplemente con el comando **npm test**, ya que el framework que se ha elegido para los test cuenta con un cliente que ejecuta los test indicados en un fichero de configuración sencillo. Por lo tanto, solo tendremo que indicar en el package.json que el script que se ejecutará para la tarea *test* es el cliente del framework de pruebas. Viendolo desde está perspectiva podemos utilizar npm como un gestor de tareas, sin la necesidad de aumentar las dependencias del sistema instalando software adicional para gestionar las tareas.
 
-- [HU1 - Como usuario quiero subir mi currículum](https://github.com/migueg/CC-Proyecto-21-22/issues/37)
-- [HU2 - Como usuario, quiero encontrar ofertas de trabajo afines a mí en un radio de X kilómetros](https://github.com/migueg/CC-Proyecto-21-22/issues/38)
-- [HU3 - Como usuario, quiero conocer porque soy compatible a una oferta para saber si el criterio de compatibilidad es válido](https://github.com/migueg/CC-Proyecto-21-22/issues/39)
-- [HU4 - Como usuario, quiero solicitar ofertas de trabajo compatibles a mí](https://github.com/migueg/CC-Proyecto-21-22/issues/40)
-- [HU5 - Como usuario, quiero modificar mi curriculum](https://github.com/migueg/CC-Proyecto-21-22/issues/41)
-- [HU6 - Como usuario, quiero finalizar mi solicitud](https://github.com/migueg/CC-Proyecto-21-22/issues/42)
+### Estilo elegido : TDD
 
-### Milestones
+Se elige TDD como estilo de desarrollo.  
 
-A continuación, se realiza una planificación del proyecto en distintos milestones:
+El sistema tendrá que trabajar con un gran volumen de datos, por lo tanto será difícil validar el resultado del procesamiento de estos a partir de las salidas que produce la funcionalidad en el sistema sin una batería de test automáticos que realicen este trabajo. Debido a que no son procesamientos triviales, las salidas producidas de los métodos del sistema puede que no sean las esperadas, es por es que es necesario pensar antes de programar los métodos que salidas esperamos obtener.  
+Para ello se elige un  estilo de desarrollo TDD, de manera que los test serán en el primer paso en el desarrollo de una funcionalidad en concreto.
+Primero se diseñarán los test y a continuación, se proporcionará la funcionalidad necesaria para hacer que estos pasen. Esto permitirá aumentar la calidad del código, testear salidas de un tamaño considerable y reducir el número de bugs que puedan surgir en etapas posteriores del desarrollo.
 
-- [Hito 1: Definición y creación del proyecto](https://github.com/migueg/CC-Proyecto-21-22/milestone/1)
-- [Hito 2 : Procesamiento de curriculums y traducciones](https://github.com/migueg/CC-Proyecto-21-22/milestone/2)
-- [Hito 3 : Búsqueda de ofertas](https://github.com/migueg/CC-Proyecto-21-22/milestone/3)
-- [Hito 4 : Web scraping](https://github.com/migueg/CC-Proyecto-21-22/milestone/4)
-- [Hito 5: Clasificación de las ofertas](https://github.com/migueg/CC-Proyecto-21-22/milestone/5)
+### Elección del marco de trabajo para las pruebas
 
-### Estructura inicial
-
-Inicialmente se define el esqueleto del sistema, que contendrá las siguientes entidades o clases:
-
-- **Finder**: Su responsabilidad será obtener las ofertas de trabajo de las distintas APIs externas. Estará definida el fichero [finder.ts](https://github.com/migueg/CC-Proyecto-21-22/blob/main/src/finder.ts)
-- **Clasificator**: Su responsabilidad será determinar y clasificar las ofertas de trabajo según a criterios de compatibilidad con el usuario. Estará definido el fichero [clasificator.ts](https://github.com/migueg/CC-Proyecto-21-22/blob/main/src/clasificator.ts)
-- **Converter**: Su responsabilidad será convertir los curriculums a objetos JSON. Estará definido en el fichero [convertToJSON.ts](https://github.com/migueg/CC-Proyecto-21-22/blob/main/src/converterToJSON.ts)
-- **Translator**: Su responsabilidad será traducir los curriculums a los idiomas de preferencia. Estará definido en el fichero [convertToJSON.ts](https://github.com/migueg/CC-Proyecto-21-22/blob/main/src/converterToJSON.ts)
-- **WebScraper**: Su responsabilidad será realizar el proceso de web scraping. Estará definido en el fichero [webScraper.ts](https://github.com/migueg/CC-Proyecto-21-22/blob/main/src/webScraper.ts)
-- **JobOffer**: Su responsabilidad será representar a una oferta de trabajo. Estará definido en el fichero [jobOffer.ts](https://github.com/migueg/CC-Proyecto-21-22/blob/main/src/jobOffer.ts)
-- **User**: Su responsabilidad será representar a un usuario en el sistema. Estará definido en el fichero [user.ts](https://github.com/migueg/CC-Proyecto-21-22/blob/main/src/user.ts)
-- **cvSchema**: Su responsabilidad será representar a un curriculum. Estará definido en el fichero [cvSchema.ts](https://github.com/migueg/CC-Proyecto-21-22/blob/main/src/Schemas/cvSchema.ts)
-- **Api**: Contituirá la API del sistema necesaria para poder realizar las distintas operaciones con este. stará definido en el fichero [api.ts](https://github.com/migueg/CC-Proyecto-21-22/blob/main/src/api.ts)
-
-
+La elección del framework de test y la bibliteca de aserciones se juestificará en el siguiente [documento](DOC/TestFramework.md).
 ## Anteriores Hitos
 
 La documentación relacionada con hitos anteriores se podrá consultar a través de los siguientes enlaces:
 
 * [Hito 0](/DOC/Hitos/hito0.md)
+* [Hito 1](/DOC/Hitos/hito1.md)
