@@ -1,12 +1,9 @@
 
-Establecimiento : src/establishment.ts
-Distribucion:  src/distribution.ts
-Reserva: src/reserve.ts
-Cliente: src/client.ts
-API: src/bussinessAPI.ts
-Carta: src/letter.ts
-Empleado: src/empleado.ts
-Informe: src/report.ts
-Pedido: src/order.ts
-Buscador: src/finder.ts
+Converter : src/converterToJSON.ts
+Translator:  src/converterToJSON.ts
+Bucardor: src/reserve.ts
+OfertaTrabajo: src/jobOffer.ts
+Curriculum: src/Schemas/cvSchema.ts
+Usuario: src/user.ts
+WebScraper: src/webScraper.ts
 
