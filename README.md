@@ -26,6 +26,7 @@ El sistema tendrá que trabajar con un gran volumen de datos, por lo tanto será
 Para ello se elige un  estilo de desarrollo TDD, de manera que los test serán en el primer paso en el desarrollo de una funcionalidad en concreto.
 Primero se diseñarán los test y a continuación, se proporcionará la funcionalidad necesaria para hacer que estos pasen. Esto permitirá aumentar la calidad del código, testear salidas de un tamaño considerable y reducir el número de bugs que puedan surgir en etapas posteriores del desarrollo.
 
+
 ### Elección del marco de trabajo para las pruebas
 
 La elección del framework de test y la bibliteca de aserciones se juestificará en el siguiente [documento](DOC/TestFramework.md).
