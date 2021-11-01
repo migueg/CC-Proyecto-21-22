@@ -1,8 +1,12 @@
 import * as cvSchemas from './Schemas/cvSchema';
 
 export  module Converter{
+    export enum availableFormats {
+        PDF = 'pdf',
+        XML = 'xml'
+    }
     export class ConverterToJson{
-
+    
         private cv : cvSchemas.cvSchemas.cvSchema;
         private education : Array<cvSchemas.cvSchemas.education>;
         private competences: Array<cvSchemas.cvSchemas.competences>;
@@ -22,9 +26,20 @@ export  module Converter{
             this.pathTofile = pathTofile;
         }
 
-        private detectFormat() : string{
+        public detectFormat(file : string) : string{
+            let splitted  = file.split(".");
+            let format = "";
+            
+            format = splitted [splitted.length - 1];
+            
+            return format;
+        }
 
-            return "";
+        public isAvailableFormat(file : string) : boolean{
+            //let isAvailableFormat :  boolean  = false;
+
+            return true;
+
         }
         private searchCompetences() : Array<cvSchemas.cvSchemas.competences>{
             return [];
