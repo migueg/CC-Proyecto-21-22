@@ -1,36 +1,103 @@
 import {Converter} from '../src/converterToJSON';
 
+const converterToJSON =  new Converter.ConverterToJson(["spanish","english"], "../test/mocks/curriculum.pdf");
 
-
-describe('converter', () => {
+describe('Quiero subir un curriculum', () => {
+  describe('Necesito saber si se detecta correctamente el fromato', () => {
   
-  test('curriculum.pdf es un pdf', () => {
-    const file = "curriculum.pdf"
-    const languajes = ["spanish", "english"]
-    const converterToJSON =  new Converter.ConverterToJson(languajes, "");
+    test('curriculum.pdf debría ser un pdf', () => {
+      const file = "curriculum.pdf"
+         expect(converterToJSON.detectFormat(file)).toBe("pdf");
+    });
 
-    expect(converterToJSON.detectFormat(file)).toBe("pdf");
-    
-  });
-  test('curriculum.cv.pdf sigue siendo un pdf', () => {
-    const file = "curriculum.cv.pdf"
-    const languajes = ["spanish", "english"]
-    const converterToJSON =  new Converter.ConverterToJson(languajes, "");
+    test('curriculum.cv.pdf debería seguir siendo un pdf', () => {
+      const file = "curriculum.cv.pdf"
+      expect(converterToJSON.detectFormat(file)).toBe("pdf");
+    })
 
-    expect(converterToJSON.detectFormat(file)).toBe("pdf");
+    test('Pdf es un formato permitido', ()=> {
+      const file = "curriculum.pdf";
+      expect(converterToJSON.isAvailableFormat(file)).toBe(true);
+    })
+    test('Xml es un formato permitido', ()=> {
+      const file = "curriculum.xml";
+      expect(converterToJSON.isAvailableFormat(file)).toBe(true);
+    })
   })
-  test('Pdf es un formato permitido', ()=> {
-    const file = "curriculum.pdf";
+  describe('Necesito saber si un pdf se convierte a json correctamente', ()=> {
+    const pathPdf= '../test/mocks/curriculum.pdf';
+    converterToJSON.convertToJson()
+    test('El curriculum en pdf se obtiene correctamente del directorio', ()=> {
+      expect(converterToJSON.loadPDF(pathPdf)).toBe(true);
+    })
+    test('El campo educación se parsea adecuadamente', () =>{
+      const education = converterToJSON.getEducation();
+      expect(education).not.toBe([]);
+      for(let i = 0; i < education.length; i +=1) {
+        expect(education[i]).toHaveProperty('name')
+        expect(education[i].name).toBe(expect.any(String));
+        expect(education[i]).toHaveProperty('location')
+        expect(education[i].location).toBe(expect.any(String));
+        expect(education[i]).toHaveProperty('institution')
+        expect(education[i].institution).toBe(expect.any(String));
+        expect(education[i]).toHaveProperty('initialDate')
+        expect(education[i].initialDate).toBe(expect.any(Date));
+        expect(education[i]).toHaveProperty('endDate')
+        expect(education[i].endDate).toBe(expect.any(Date));
+      }
+    })
 
-    const converterToJSON =  new Converter.ConverterToJson([], "");
+    test('El campo competences se parsea adecuadamente',() =>{
+      const competences = converterToJSON.getCompetences();
+      expect(competences).not.toBe([]);
+      for(let i = 0; i < competences.length; i +=1) {
+        expect(competences[i]).toHaveProperty('technical')
+        expect(competences[i].technical).not.toBe([]);
+        expect(competences[i]).toHaveProperty('personal')
+        expect(competences[i].personal).not.toBe([]);
+        expect(competences[i]).toHaveProperty('languages')
+        expect(competences[i].languages).not.toBe([]);
+      }
+    })
 
-    expect(converterToJSON.isAvailableFormat(file)).toBe(true);
-  })
-  test('Xml es un formato permitido', ()=> {
-    const file = "curriculum.xml";
+    test('El campo experience se parsea adecuadamente', () =>{
+      const experience = converterToJSON.getExperiences();
+      expect(experience).not.toBe([]);
+      for(let i = 0; i < experience.length; i +=1) {
+        expect(experience[i]).toHaveProperty('job')
+        expect(experience[i].job).toBe(expect.any(String));
+        expect(experience[i]).toHaveProperty('company')
+        expect(experience[i].company).toBe(expect.any(String));
+        expect(experience[i]).toHaveProperty('place')
+        expect(experience[i].place).toBe(expect.any(String));
+        expect(experience[i]).toHaveProperty('description')
+        expect(experience[i].description).toBe(expect.any(String));
+        expect(experience[i]).toHaveProperty('startDate')
+        expect(experience[i].startDate).toBe(expect.any(Date));
+        expect(experience[i]).toHaveProperty('endDate')
+        expect(experience[i].endDate).toBe(expect.any(Date));
+      }
+    })
+    test('El curriculum debería haberse parseado correctamente', () => {
+      const cv = converterToJSON.getCv();
 
-    const converterToJSON =  new Converter.ConverterToJson([], "");
+      expect(cv).not.toBeNull();
+      expect(cv).not.toBeUndefined();
 
-    expect(converterToJSON.isAvailableFormat(file)).toBe(true);
+      expect(cv).toEqual(expect.objectContaining({
+        name: expect.any(String),
+        age: expect.any(Number),
+        birth: expect.any(Date),
+        address: expect.any(String),
+        description: expect.any(String),
+        job: expect.any(String),
+        education: expect.any(Array),
+        competences: expect.any(Array),
+        experience: expect.any(Array),
+        image: expect.any(String),
+      }))
+    })
   })
 })
+
+
