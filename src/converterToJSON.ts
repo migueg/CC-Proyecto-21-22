@@ -36,9 +36,21 @@ export  module Converter{
         }
 
         public isAvailableFormat(file : string) : boolean{
-            //let isAvailableFormat :  boolean  = false;
+            let isAvailableFormat :  boolean  = false;
+            let format : string = this.detectFormat(file);
 
-            return true;
+            switch (format){
+                case availableFormats.PDF:
+                    isAvailableFormat = true;
+                    break;
+                case availableFormats.XML:
+                    isAvailableFormat = true;
+                    break;
+                default: 
+                    break;
+            }
+            
+            return isAvailableFormat;
 
         }
         private searchCompetences() : Array<cvSchemas.cvSchemas.competences>{
