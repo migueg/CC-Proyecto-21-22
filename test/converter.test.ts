@@ -1,5 +1,6 @@
+import exp from 'constants';
 import {Converter} from '../src/converterToJSON';
-
+const fs = require('fs');
 const converterToJSON =  new Converter.ConverterToJson(["spanish","english"], "../test/mocks/curriculum.pdf");
 
 describe('Quiero subir un curriculum', () => {
@@ -25,57 +26,63 @@ describe('Quiero subir un curriculum', () => {
     })
   })
   describe('Necesito saber si un pdf se convierte a json correctamente', ()=> {
-    const pathPdf= '../test/mocks/curriculum.pdf';
-    converterToJSON.convertToJson()
-    test('El curriculum en pdf se obtiene correctamente del directorio', ()=> {
+    const pathPdf= "/home/migue/Master/CC/CC-Proyecto-21-22/test/mocks/testCV.pdf";
+    const pathToParser = "/home/migue/Master/CC/CC-Proyecto-21-22/test/mocks/testCV.txt";
+    //converterToJSON.convertToJson();
+    test('El curriculum en pdf se obtiene correctamente del directorio y lo vuelca a un fichero de texto', ()=> {
       expect(converterToJSON.loadPDF(pathPdf)).toBe(true);
+      let file = fs.readFileSync(pathPdf, 'utf8');
+      expect(file).toStrictEqual(expect.any(String));
+
     })
     test('El campo educación se parsea adecuadamente', () =>{
       const education = converterToJSON.getEducation();
-      expect(education).not.toBe([]);
+      expect(education).not.toEqual([]);
       for(let i = 0; i < education.length; i +=1) {
         expect(education[i]).toHaveProperty('name')
-        expect(education[i].name).toBe(expect.any(String));
+        expect(education[i].name).toEqual(expect.any(String));
         expect(education[i]).toHaveProperty('location')
-        expect(education[i].location).toBe(expect.any(String));
+        expect(education[i].location).toEqual(expect.any(String));
         expect(education[i]).toHaveProperty('institution')
-        expect(education[i].institution).toBe(expect.any(String));
+        expect(education[i].institution).toEqual(expect.any(String));
         expect(education[i]).toHaveProperty('initialDate')
-        expect(education[i].initialDate).toBe(expect.any(Date));
+        expect(education[i].initialDate).toEqual(expect.any(Date));
         expect(education[i]).toHaveProperty('endDate')
-        expect(education[i].endDate).toBe(expect.any(Date));
+        expect(education[i].endDate).toEqual(expect.any(Date));
       }
     })
 
-    test('El campo competences se parsea adecuadamente',() =>{
+    test('El campo competences se parsea adecuadamente', async () =>{
+      expect(converterToJSON.searchCompetences(pathToParser)).not.toBe([]);
       const competences = converterToJSON.getCompetences();
-      expect(competences).not.toBe([]);
+      expect(competences).not.toEqual([]);
+
       for(let i = 0; i < competences.length; i +=1) {
         expect(competences[i]).toHaveProperty('technical')
-        expect(competences[i].technical).not.toBe([]);
+        expect(competences[i].technical).not.toEqual([]);
+        expect(competences[i].technical).toContainEqual(expect.any(String));
         expect(competences[i]).toHaveProperty('personal')
-        expect(competences[i].personal).not.toBe([]);
-        expect(competences[i]).toHaveProperty('languages')
-        expect(competences[i].languages).not.toBe([]);
+        expect(competences[i].personal).not.toEqual([]);
+        expect(competences[i].personal).toContainEqual(expect.any(String));
       }
     })
 
     test('El campo experience se parsea adecuadamente', () =>{
       const experience = converterToJSON.getExperiences();
-      expect(experience).not.toBe([]);
+      expect(experience).not.toEqual([]);
       for(let i = 0; i < experience.length; i +=1) {
         expect(experience[i]).toHaveProperty('job')
-        expect(experience[i].job).toBe(expect.any(String));
+        expect(experience[i].job).toEqual(expect.any(String));
         expect(experience[i]).toHaveProperty('company')
-        expect(experience[i].company).toBe(expect.any(String));
+        expect(experience[i].company).toEqual(expect.any(String));
         expect(experience[i]).toHaveProperty('place')
-        expect(experience[i].place).toBe(expect.any(String));
+        expect(experience[i].place).toEqual(expect.any(String));
         expect(experience[i]).toHaveProperty('description')
-        expect(experience[i].description).toBe(expect.any(String));
+        expect(experience[i].description).toEqual(expect.any(String));
         expect(experience[i]).toHaveProperty('startDate')
-        expect(experience[i].startDate).toBe(expect.any(Date));
+        expect(experience[i].startDate).toEqual(expect.any(Date));
         expect(experience[i]).toHaveProperty('endDate')
-        expect(experience[i].endDate).toBe(expect.any(Date));
+        expect(experience[i].endDate).toEqual(expect.any(Date));
       }
     })
     test('El curriculum debería haberse parseado correctamente', () => {
