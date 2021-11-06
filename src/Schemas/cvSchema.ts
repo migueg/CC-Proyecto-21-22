@@ -18,7 +18,6 @@ export declare module cvSchemas{
     export type competences = {
         technical: Array<string>;
         personal: Array<string>;
-        languages: Array<languages>;
     }
 
     export type experience = {
