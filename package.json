@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "jest",
-    "compile": "tsc"
+    "compile": "tsc",
+    "prestart": "npm run test && npm run compile"
   },
   "repository": {
     "type": "git",
