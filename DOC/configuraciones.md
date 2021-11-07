@@ -18,7 +18,7 @@ Se puede observar, que hay una tarea prestar que ejecutará primero los tests y 
 
 Para compilar el proyecto, se crea una tarea compile que se le pasa el comando **tsc**. Este compando es el cliente de typescript que compilará el proyecto de acuerdo a lo configurado en el fichero de configuración [tsconfig.json](/tsconfig.json).
 En este fichero le indicaremos entre otros:
-1. En que directorio volcará el resultado de la compilación, que en este caso será ene l directorio **build**
+1. En que directorio volcará el resultado de la compilación, que en este caso será en el directorio **build**
 2. Que directorios o ficheros compilara (clave include). Le indicaremos que compile solo los archivos que está contenidos en el directorio *src*.
 3. Que directorios o ficheros excluirá (clave exclude).
 
