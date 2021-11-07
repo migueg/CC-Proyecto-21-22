@@ -7,4 +7,4 @@ En concreto se han escrito 9 tests, y posteriormente la funcionalidad para super
 ![test](/IMG/testHito2.png)
 
 Como se puede observar los tests se dividen en un bloque principal, que este a su vez se divide en otros dos sub-bloques. El primero testeara si el sistema es capaz de detectar y validar el formato de los ficheros que el usuario subirá a la plataforma, y el segundo si se convierte un correctamente un pdf al formato json con la estructura y esquema deseada en el sistema.  
-También se puede observar que prácticamente los tests cubren la totalidad del conjunto de funcionalidad que se estaba testeando. Dicha funcionalidad se encuentra en el fichero [converterToJson.ts](/src/converterToJson.ts)
+También se puede observar que prácticamente los tests cubren la totalidad del conjunto de funcionalidad que se estaba testeando. Dicha funcionalidad se encuentra en el fichero [converterToJson.ts](/src/converterToJSON.ts)
