@@ -15,8 +15,11 @@ A continuación, se describe el proceso realizado para llevar a cabo el hito 2
 
 ### Gestor de tareas : NPM
 
-Puesto que el lenguaje principal del sistema es typescript, y se necesita un framework de test, se debe usar como entorno de ejecución Node.js. Por lo tanto, se elige **NPM** como gestor de tareas. En realidad, npm es un sistema de gestión de paquetes para manejar las dependencias del sistema. Sin embargo, npm no es un sistema de gestión de paquetes común, ya que también se puede comportar, en determinados casos, como un gestor de tareas.  
-En el package.json se le puede indicar una serie de scripts que se pueden ejecutar utilizando **npm**. En el caso de nuestro sistema, esta característica nos permitirá lanzar los test de nuestro sistema simplemente con el comando **npm test**, ya que el framework que se ha elegido para los test cuenta con un cliente que ejecuta los test indicados en un fichero de configuración sencillo. Por lo tanto, solo tendremo que indicar en el package.json que el script que se ejecutará para la tarea *test* es el cliente del framework de pruebas. Viendolo desde está perspectiva podemos utilizar npm como un gestor de tareas, sin la necesidad de aumentar las dependencias del sistema instalando software adicional para gestionar las tareas.
+Se elige **NPM** como gestor de tareas, frente a otras opciones populares entre desarrolladores como **Grunt** y **Gulp**. En realidad, npm es un sistema de gestión de paquetes para manejar las dependencias del sistema. Sin embargo, npm no es un sistema de gestión de paquetes común, ya que también se puede comportar, en determinados casos, como un gestor de tareas.   
+Mi criterio de selección se ha basado en que como se trata de un provecto pequeño no se van a necesitar realizar tareas de mucha complejidad, por lo tanto creo que no es conveniente aumentar la complejidad mediante el uso de un gestor de tareas más complejo como **Gulp** o **Gunt** que cuentan con números plugins que no voy a necesitar, además que de que estos requieren un esfuerzo adicional para aprender a usarlos. Sin embargo, **npm** es sencillo e intuitivo y para lo que yo necesito que es ejecutar tareas, es totalmente válido, ya que nos permite indicar una serie de tarea a ejecutar.  
+
+En el **package.json** se le puede indicar una serie de scripts que se pueden ejecutar utilizando **npm**. En el caso de nuestro sistema, esta característica nos permitirá ejecutar las tareas indicando cuales queremos ejecutar en la sección de **scripts**. Por ejemplo, para lanzar los test de nuestro sistema simplemente se ejecutará el comando **npm run test**, ya que el framework que se ha elegido para los test cuenta con un cliente que ejecuta los test indicados en un fichero de configuración sencillo. Por lo tanto, solo tendremos que indicar en el package.json que el script que se ejecutará para la tarea *test* es el cliente del framework de pruebas. Viéndolo desde está perspectiva podemos utilizar npm como un gestor de tareas, sin la necesidad de aumentar las dependencias del sistema instalando software adicional para gestionar las tareas.
+Además **npm** me va a permitir agrupar las tareas en un solo comando.
 
 ### Estilo elegido : TDD
 
@@ -30,7 +33,14 @@ Primero se diseñarán los test y a continuación, se proporcionará la funciona
 ### Elección del marco de trabajo para las pruebas
 
 La elección del framework de test y la bibliteca de aserciones se juestificará en el siguiente [documento](DOC/TestFramework.md).
+
+### Configuración y test realizados
+
+- La configuración realizadas tanto para los test como para el gestor de tareas se puede consultar aquí : [configuraciones](DOC/configuraciones.md).
+- Los test relaizados en este hito se pueden consultar aqui : [testsHito2](DOC/testHito2.md)  
+
 ## Anteriores Hitos
+
 
 La documentación relacionada con hitos anteriores se podrá consultar a través de los siguientes enlaces:
 
