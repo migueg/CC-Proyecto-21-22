@@ -126,8 +126,24 @@ export  module Converter{
             let cv = this.cleanCv(pathTofile); 
             let cvSplited = cv.split('\r');
             let educationIndex = cvSplited.indexOf("Formación");
-            
-            return [];
+            educationIndex += 1;
+            while( !this.areas.includes(cvSplited[educationIndex]) && educationIndex < cvSplited.length-1){
+                let stringCleaned = cvSplited[educationIndex].replace(/Estudios/g,' ');
+                let splited = stringCleaned.split(',');
+                let dates = splited[2].split('-');
+                
+                this.education.push(<cvSchemas.cvSchemas.education>{
+                    name: splited[1],
+                    location: " ",
+                    institution: splited[0],
+                    initialDate: dates[0],
+                    endDate: dates[1],
+                })
+                
+                educationIndex +=1;
+            }
+            console.log(this.education[0]);
+            return this.education;
         }
         private searchExperiences() : Array<cvSchemas.cvSchemas.experience>{
             return [];

@@ -4,8 +4,8 @@ export declare module cvSchemas{
         name: string;
         location: string;
         institution: string;
-        initialDate: Date;
-        endDate: Date;
+        initialDate: string;
+        endDate: string;
     }
 
     export type languages = {
