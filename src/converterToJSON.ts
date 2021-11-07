@@ -142,21 +142,19 @@ export  module Converter{
                 
                 educationIndex +=1;
             }
-            console.log(this.education[0]);
+        
             return this.education;
         }
         public searchExperiences(pathTofile : string) : Array<cvSchemas.cvSchemas.experience>{
             let cv = this.cleanCv(pathTofile); 
             let cvSplited = cv.split('\r');
             let experienceIndex = cvSplited.indexOf("Experiencia Laboral");
-            console.log(experienceIndex)
             let iterations = 0;
             let experience : cvSchemas.cvSchemas.experience = <cvSchemas.cvSchemas.experience>{};
 
             experienceIndex += 1;
                         
             while( !this.areas.includes(cvSplited[experienceIndex]) && experienceIndex < cvSplited.length-1){
-                
                 switch(iterations){
                     case 0 : 
                     experience.company = cvSplited[experienceIndex];
@@ -175,21 +173,66 @@ export  module Converter{
                     experience.description = cvSplited[experienceIndex];
                     break;
                 }
-
-                this.experience.push(experience);
-                
                 iterations++;
                 if(iterations == 5){
                     iterations = 0;
+                    console.log('AQUI');
+                    this.experience.push(experience);
                 }
                 
                 experienceIndex +=1;
             }
+            
             return this.experience;
         }
-        public convertToJson(): Array<cvSchemas.cvSchemas.cvSchema>{
+        public convertToJson(pathTofile : string): cvSchemas.cvSchemas.cvSchema{
+            //this.searchCompetences(pathTofile);
+            //this.searchEducation(pathTofile);
+            //this.searchExperiences(pathTofile);
 
-            return [];
+            let cv : string = this.cleanCv(pathTofile); 
+            let cvSplited : Array<string>= cv.split('\r');
+            let cvIndex : number = 0;
+            let iteration : number = 0;
+            let cvSchema : cvSchemas.cvSchemas.cvSchema = <cvSchemas.cvSchemas.cvSchema>{};
+
+            while( !this.areas.includes(cvSplited[cvIndex]) && cvIndex < cvSplited.length-1){
+                switch(iteration){
+                    case 0 : 
+                        cvSchema.name = cvSplited[cvIndex];
+                        cvSchema.age = 0;
+                        cvSchema.birth = "not found";
+                        break;
+                    case 1: 
+                        cvSchema.job = cvSplited[cvIndex];
+                        break;
+                    case 2:
+                        console.log(cvSplited[cvIndex])
+                        cvSchema.address = cvSplited[cvIndex].split('+')[0];
+                        cvSchema.number = cvSplited[cvIndex].split('+')[1];
+                        break;
+                    case 3:
+                        cvSchema.address += ", " + cvSplited[cvIndex].split(',')[0];
+                        cvSchema.email = cvSplited[cvIndex].split(',')[1];
+                        break;
+                    case 4:
+                        cvSchema.description = cvSplited[cvIndex];
+                        break;
+                }
+
+                iteration++
+                cvIndex +=1;
+            }
+
+            cvSchema.competences = this.competences;
+            cvSchema.education = this.education;
+            cvSchema.competences = this.competences;
+            cvSchema.experience = this.experience;
+            
+            this.cv = cvSchema;
+            
+            console.log(this.cv);
+            return this.cv;
         }
         public loadPDF(pathTofile : string) : boolean {
             this.pdfParser.on("pdfParser_dataError", (errData : any) => {console.error(errData.parserError); return false;});

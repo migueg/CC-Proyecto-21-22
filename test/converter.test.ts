@@ -88,6 +88,7 @@ describe('Quiero subir un curriculum', () => {
       }
     })
     test('El curriculum debería haberse parseado correctamente', () => {
+      expect(converterToJSON.convertToJson(pathToParser)).not.toEqual({});
       const cv = converterToJSON.getCv();
 
       expect(cv).not.toBeNull();
@@ -96,14 +97,15 @@ describe('Quiero subir un curriculum', () => {
       expect(cv).toEqual(expect.objectContaining({
         name: expect.any(String),
         age: expect.any(Number),
-        birth: expect.any(Date),
+        birth: expect.any(String),
         address: expect.any(String),
         description: expect.any(String),
         job: expect.any(String),
         education: expect.any(Array),
         competences: expect.any(Array),
         experience: expect.any(Array),
-        image: expect.any(String),
+        email: expect.any(String),
+        number: expect.any(String),
       }))
     })
   })

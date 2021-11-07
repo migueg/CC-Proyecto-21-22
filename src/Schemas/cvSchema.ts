@@ -31,13 +31,14 @@ export declare module cvSchemas{
     export type cvSchema = {
         name?: string;
         age?: number;
-        birth?: Date;
+        birth?: string;
         address?: string;
         description?: string;
         job?: string;
+        email?: string,
         education?: Array<education>;
         competences?: Array<competences>;
         experience?: Array<experience>;
-        image?: string;
+        number?: string;
     }
 }
