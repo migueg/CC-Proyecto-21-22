@@ -24,8 +24,8 @@ export declare module cvSchemas{
         job: string;
         company: string;
         place: string;
-        startDate: Date;
-        endDate: Date;
+        startDate: string;
+        endDate: string;
         description: string;
     }
     export type cvSchema = {

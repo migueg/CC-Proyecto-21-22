@@ -69,6 +69,7 @@ describe('Quiero subir un curriculum', () => {
     })
 
     test('El campo experience se parsea adecuadamente', () =>{
+      expect(converterToJSON.searchExperiences(pathToParser)).not.toBe([]);
       const experience = converterToJSON.getExperiences();
       expect(experience).not.toEqual([]);
       for(let i = 0; i < experience.length; i +=1) {
@@ -81,9 +82,9 @@ describe('Quiero subir un curriculum', () => {
         expect(experience[i]).toHaveProperty('description')
         expect(experience[i].description).toEqual(expect.any(String));
         expect(experience[i]).toHaveProperty('startDate')
-        expect(experience[i].startDate).toEqual(expect.any(Date));
+        expect(experience[i].startDate).toEqual(expect.any(String));
         expect(experience[i]).toHaveProperty('endDate')
-        expect(experience[i].endDate).toEqual(expect.any(Date));
+        expect(experience[i].endDate).toEqual(expect.any(String));
       }
     })
     test('El curriculum debería haberse parseado correctamente', () => {

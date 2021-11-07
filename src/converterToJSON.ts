@@ -37,7 +37,7 @@ export  module Converter{
             this.format = "";
             this.pathTofile = pathTofile;
             this.pdfParser =  new pdf2json(this,1);
-            this.areas = ["Competencias", "Idiomas" , "Formacion" , "Experiencia Laboral", "Experiencia","Educación"];
+            this.areas = ["Competencias", "Idiomas" , "Formacion" , "Formación", "Experiencia Laboral", "Experiencia","Educación"];
             this.cvStringCleaned = "";
         }
 
@@ -145,8 +145,47 @@ export  module Converter{
             console.log(this.education[0]);
             return this.education;
         }
-        private searchExperiences() : Array<cvSchemas.cvSchemas.experience>{
-            return [];
+        public searchExperiences(pathTofile : string) : Array<cvSchemas.cvSchemas.experience>{
+            let cv = this.cleanCv(pathTofile); 
+            let cvSplited = cv.split('\r');
+            let experienceIndex = cvSplited.indexOf("Experiencia Laboral");
+            console.log(experienceIndex)
+            let iterations = 0;
+            let experience : cvSchemas.cvSchemas.experience = <cvSchemas.cvSchemas.experience>{};
+
+            experienceIndex += 1;
+                        
+            while( !this.areas.includes(cvSplited[experienceIndex]) && experienceIndex < cvSplited.length-1){
+                
+                switch(iterations){
+                    case 0 : 
+                    experience.company = cvSplited[experienceIndex];
+                    break;
+                    case 1 : 
+                    experience.place = cvSplited[experienceIndex];
+                    break;
+                    case 2 : 
+                    experience.job = cvSplited[experienceIndex];
+                    break;
+                    case 3 : 
+                    experience.startDate = cvSplited[experienceIndex].split('–')[0];
+                    experience.endDate = cvSplited[experienceIndex].split('–')[1];
+                    break;
+                    case 4: 
+                    experience.description = cvSplited[experienceIndex];
+                    break;
+                }
+
+                this.experience.push(experience);
+                
+                iterations++;
+                if(iterations == 5){
+                    iterations = 0;
+                }
+                
+                experienceIndex +=1;
+            }
+            return this.experience;
         }
         public convertToJson(): Array<cvSchemas.cvSchemas.cvSchema>{
 
