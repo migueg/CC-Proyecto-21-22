@@ -4,6 +4,7 @@
   "description": "Este repositorio contiene el proyecto realizado para las prácticas de la asignatura *Cloud Computing del Máster de Ingeniería Informática de la UGR* por @migueg.",
   "main": "index.js",
   "scripts": {
+    "all": "npm install && npm run prestart",
     "test": "jest",
     "compile": "tsc",
     "prestart": "npm run test && npm run compile"
