@@ -1,9 +1,7 @@
 
-Converter : src/converterToJSON.ts
-Translator:  src/converterToJSON.ts
-Bucardor: src/reserve.ts
-OfertaTrabajo: src/jobOffer.ts
-Curriculum: src/Schemas/cvSchema.ts
-Usuario: src/user.ts
-WebScraper: src/webScraper.ts
+entidades: 
+  - src/converterToJSON.ts
+lenguaje: typescript
+test: test/converter.test.ts
+fichero_tareas: package.json
 
