@@ -1,5 +1,5 @@
 
-entidades: 
+entidad: 
   - src/converterToJSON.ts
 lenguaje: typescript
 test: test/converter.test.ts
