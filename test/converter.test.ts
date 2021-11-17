@@ -26,8 +26,9 @@ describe('Quiero subir un curriculum', () => {
     })
   })
   describe('Necesito saber si un pdf se convierte a json correctamente', ()=> {
-    const pathPdf= "/home/migue/Master/CC/CC-Proyecto-21-22/test/mocks/testCV.pdf";
-    const pathToParser = "/home/migue/Master/CC/CC-Proyecto-21-22/test/mocks/testCV.txt";
+   
+    const pathPdf=  process.env.PWD+"/test/mocks/testCV.pdf";
+    const pathToParser = process.env.PWD+"/test/mocks/testCV.txt";
     //converterToJSON.convertToJson();
     test('El curriculum en pdf se obtiene correctamente del directorio y lo vuelca a un fichero de texto', ()=> {
       expect(converterToJSON.loadPDF(pathPdf)).toBe(true);

@@ -118,7 +118,6 @@ export  module Converter{
                 'personal': personal,
             })
 
-            console.log('Encontradas las siguientes competencias: \n'+this.competences[0]);
             return this.competences;
             
         }
@@ -142,7 +141,7 @@ export  module Converter{
                 
                 educationIndex +=1;
             }
-        
+
             return this.education;
         }
         public searchExperiences(pathTofile : string) : Array<cvSchemas.cvSchemas.experience>{
@@ -176,7 +175,6 @@ export  module Converter{
                 iterations++;
                 if(iterations == 5){
                     iterations = 0;
-                    console.log('AQUI');
                     this.experience.push(experience);
                 }
                 
@@ -207,7 +205,6 @@ export  module Converter{
                         cvSchema.job = cvSplited[cvIndex];
                         break;
                     case 2:
-                        console.log(cvSplited[cvIndex])
                         cvSchema.address = cvSplited[cvIndex].split('+')[0];
                         cvSchema.number = cvSplited[cvIndex].split('+')[1];
                         break;
@@ -237,8 +234,8 @@ export  module Converter{
         public loadPDF(pathTofile : string) : boolean {
             this.pdfParser.on("pdfParser_dataError", (errData : any) => {console.error(errData.parserError); return false;});
             this.pdfParser.on("pdfParser_dataReady", (pdfData: any) => {
-                fs.writeFile("/home/migue/Master/CC/CC-Proyecto-21-22/test/mocks/testCV.txt", this.pdfParser.getRawTextContent(), ()=>{ return true;});
-                fs.writeFile("/home/migue/Master/CC/CC-Proyecto-21-22/test/mocks/testCV.json",  JSON.stringify(pdfData), ()=>{});
+                fs.writeFile("../test/mocks/testCV.txt", this.pdfParser.getRawTextContent(), ()=>{ return true;});
+                fs.writeFile("../test/mocks/testCV.json",  JSON.stringify(pdfData), ()=>{});
             });
             this.pdfParser.loadPDF(pathTofile);
             return true;
