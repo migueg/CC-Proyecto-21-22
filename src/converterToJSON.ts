@@ -3,9 +3,6 @@ import * as fs from 'fs';
 import { StreamOptions } from 'stream';
 const  pdf2json = require("../node_modules/pdf2json/pdfparser");
 
-//const fs = require('fs'),
-
-
 export  module Converter{
     export enum availableFormats {
         PDF = 'pdf',
@@ -184,10 +181,6 @@ export  module Converter{
             return this.experience;
         }
         public convertToJson(pathTofile : string): cvSchemas.cvSchemas.cvSchema{
-            //this.searchCompetences(pathTofile);
-            //this.searchEducation(pathTofile);
-            //this.searchExperiences(pathTofile);
-
             let cv : string = this.cleanCv(pathTofile); 
             let cvSplited : Array<string>= cv.split('\r');
             let cvIndex : number = 0;
