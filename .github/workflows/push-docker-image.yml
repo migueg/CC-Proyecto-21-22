@@ -52,7 +52,7 @@ jobs:
               
       - name: Run tests
         if: steps.changes.outputs.src == 'true'
-        run: docker run -t -v `pwd`:/app/test migueg/cc-proyect-21-22:workwith-test
+        run: docker run -t -v `pwd`:/app/test migueg/cc-proyecto-21-22:workwith-test
       
     
           
