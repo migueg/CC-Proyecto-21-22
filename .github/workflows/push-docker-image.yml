@@ -21,7 +21,7 @@ jobs:
         id: meta
         uses: docker/metadata-action@v3
         with:
-          images: migueg/cc-proyect-21-22
+          images: migueg/cc-proyecto-21-22
           tags: workwith-test
 
       - name: Build and push Docker image
