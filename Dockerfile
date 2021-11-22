@@ -6,7 +6,7 @@ WORKDIR /app/test
 
 
 #Update container
-RUN  apk update && apk upgrade 
+RUN  apk update && apk upgrade  && rm -rf node_modules 
 
 #Change user not root for runtime
 #Install dependencies
