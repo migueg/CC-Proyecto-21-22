@@ -12,7 +12,7 @@ RUN  apk update && apk upgrade
 
 #Install dependencies
 COPY package.json .
-RUN npm install --save  && npm cache clean --force
+RUN npm install   && npm cache clean --force
 
 #Change user not root for runtime
 USER node
