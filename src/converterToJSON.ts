@@ -2,7 +2,7 @@ import * as cvSchemas from './Schemas/cvSchema';
 import * as fs from 'fs';
 import { StreamOptions } from 'stream';
 const  pdf2json = require("../node_modules/pdf2json/pdfparser");
-
+//
 export  module Converter{
     export enum availableFormats {
         PDF = 'pdf',
