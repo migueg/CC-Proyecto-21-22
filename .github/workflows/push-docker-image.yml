@@ -32,7 +32,7 @@ jobs:
             migueg/cc-proyecto-21-22
             ghcr.io/${{ github.repository }}
           tags: |
-            workwith-test
+            latest
 
       - name: Build and push Docker image
         uses: docker/build-push-action@v2
@@ -52,7 +52,7 @@ jobs:
               
       - name: Run tests
         if: steps.changes.outputs.src == 'true'
-        run: docker run -t -v `pwd`:/app/test migueg/cc-proyecto-21-22:workwith-test
+        run: docker run -t -v `pwd`:/app/test migueg/cc-proyecto-21-22:latest
       
     
           
