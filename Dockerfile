@@ -1,28 +1,30 @@
 FROM node:17.1-alpine3.12
 LABEL version="0.1.0" maintainer="miguegarciatenorio@gmail.com" nodeversion=$VER
 
-#Update container
-RUN  apk update && apk upgrade  && rm -rf node_modules 
+#Update container and grant permission to new user
+RUN  apk update && apk upgrade  && rm -rf node_modules \
+    && adduser -S migue  \
+    && mkdir /app  \
+    && chown -R migue /app 
+   
 
-# The `--global` install dir
-ENV NPM_CONFIG_PREFIX="/home/node/.npm-global"
 #Set path to node modules
-ENV PATH="/app/test/node_modules/.bin:${PATH}"
+ENV PATH="/app/node_modules/.bin:${PATH}"
 
 #Change user not root 
-USER node
+USER migue
 
 WORKDIR /app
 
-
 COPY package*.json  ./
-RUN npm --global config set user "node" \
-    && npm --global --quiet --no-progress install \
+RUN npm ci \
     && npm cache clean --force
 
-##RUN npm install  && npm cache clean --force
 
 WORKDIR /app/test
 
-CMD ["npm","run","test"] 
+#Change node user
+USER node
+
+CMD ["npm","test"] 
 
