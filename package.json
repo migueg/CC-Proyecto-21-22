@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "all": "npm install && npm run prestart",
+    "run-docker": "docker run -t -v `pwd`:/app/test migueg/cc-proyecto-21-22:latest",
     "test": "jest",
     "compile": "tsc",
     "prestart": "npm run test && npm run compile"
