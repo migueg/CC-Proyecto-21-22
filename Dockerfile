@@ -5,7 +5,10 @@ LABEL version="0.1.0" maintainer="miguegarciatenorio@gmail.com" nodeversion=$VER
 RUN  apk update && apk upgrade  && rm -rf node_modules \
     && adduser -S migue  \
     && mkdir /app  \
+    && mkdir /app/test \
+    && mkdir /app/test/coverage \
     && chown -R migue /app 
+    
    
 
 #Set path to node modules
