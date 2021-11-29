@@ -1,8 +1,7 @@
 name:  Push Docker image to multiple registries and run test
 on:
   push:
-    branches: [ main ]
-    
+    branches: [ main ]   
 jobs:
   push_to_reistries: 
     name: Push Docker image to Docker Hub and Github Container Registry
@@ -42,17 +41,4 @@ jobs:
           tags: ${{ steps.meta.outputs.tags }}      
           labels: ${{ steps.meta.outputs.labels }}
           
-      - name: Check if exists chang in code
-        uses: dorny/paths-filter@v2
-        id: changes
-        with: 
-          filters: |
-            src:
-              - 'src/**'
-              
-      - name: Run tests
-        if: steps.changes.outputs.src == 'true'
-        run: docker run -t -v `pwd`:/app/test migueg/cc-proyecto-21-22:latest
-      
-    
           
