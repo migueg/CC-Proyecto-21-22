@@ -7,14 +7,12 @@ on:
       - completed
       
 jobs:
-  run_docker_with_test:
-    on-success:
-      runs-on: ubuntu-latest
-      if: ${{ github.event.workflow_run.conclusion == 'success' }}
-      steps:
+  on-success:
+    runs-on: ubuntu-latest
+    if: ${{ github.event.workflow_run.conclusion == 'success' }}
+    steps:
       - name: Check out the repo
         uses: actions/checkout@v2
-
+        
       - name: Run docker test
         run: docker run -t -v `pwd`:/app/test migueg/cc-proyecto-21-22:latest
-
