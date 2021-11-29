@@ -10,4 +10,4 @@ before_install:
   - docker pull migueg/cc-proyecto-21-22:latest
 
 script:
-  - npm run-docker
+  - npm run run-docker
