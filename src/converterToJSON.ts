@@ -1,7 +1,14 @@
 import * as cvSchemas from './Schemas/cvSchema';
 import * as fs from 'fs';
 import { StreamOptions } from 'stream';
-const  pdf2json = require("../../node_modules/pdf2json/pdfparser");
+
+var pdf2json : any;
+if(process.env.PWD == "/app/test"){
+      pdf2json = require("../../node_modules/pdf2json/pdfparser");
+}else{
+      pdf2json = require("../node_modules/pdf2json/pdfparser");
+}
+
 //
 export  module Converter{
     export enum availableFormats {
