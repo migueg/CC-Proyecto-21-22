@@ -7,9 +7,8 @@ RUN  apk update && apk upgrade  && rm -rf node_modules \
     && mkdir /app  \
     && mkdir /app/test \
     && mkdir /app/test/coverage \
-    && chown -R migue /app \
-    && chown -R node /app 
-    
+    && chown -R migue /app 
+   
    
 
 #Set path to node modules
@@ -27,8 +26,7 @@ RUN npm ci \
 
 WORKDIR /app/test
 
-#Change node user
-USER node
+
 
 CMD ["npm","test"] 
 
