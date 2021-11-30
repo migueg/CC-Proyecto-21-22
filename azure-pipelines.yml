@@ -9,16 +9,10 @@ trigger:
 pool:
   vmImage: ubuntu-latest
 
-strategy:
-  matrix:
-    node_12_x:
-      node_version: 12.x
-    node_13_x:
-      node_version: 13.x
 steps:
 - task: NodeTool@0 
   inputs:
-    versionSpec: $(node_version)
+    versionSpec: '12.x'
 
 - script: |
     npm install
