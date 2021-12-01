@@ -6,6 +6,10 @@ node_js:
 services:
   - docker
 
+branches:
+  only: 
+    -main
+
 before_install:
   - docker pull migueg/cc-proyecto-21-22:latest
 
