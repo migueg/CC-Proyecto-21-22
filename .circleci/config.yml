@@ -15,6 +15,4 @@ workflows:
   test_my_app:
     jobs:
       - test
-  branches:
-    only:
-      - main
+ 
