@@ -1,0 +1,24 @@
+name: CI in Azure
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches: 
+      - main
+
+jobs:
+    build:
+        name: Call Azure Pipeline
+        runs-on: ubuntu-latest
+        steps:
+        - name: Check out the repo
+          uses: actions/checkout@v2
+        
+        - name: Azure Pipelines Action
+          uses: Azure/pipelines@v1
+          with:
+            azure-devops-project-url: https://dev.azure.com/emiguetenorio/cc-proyecto-21-22
+            azure-pipeline-name: 'migueg.CC-Proyecto-21-22'
+            azure-devops-token: ${{ secrets.AZURE_DEVOPS_TOKEN }}
