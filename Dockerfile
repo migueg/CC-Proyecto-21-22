@@ -7,7 +7,8 @@ RUN  apk update && apk upgrade  && rm -rf node_modules \
     && mkdir /app  \
     && mkdir /app/test \
     && mkdir /app/test/coverage \
-    && chown -R migue /app 
+    && chown -R migue /app  \
+    && chown -R migue /app/test/coverage
    
    
 
@@ -25,7 +26,6 @@ RUN npm ci \
 
 
 WORKDIR /app/test
-
 
 
 CMD ["npm","test"] 
