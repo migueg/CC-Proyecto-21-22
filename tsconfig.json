@@ -99,7 +99,7 @@
     "skipLibCheck": true                                 /* Skip type checking all .d.ts files. */
   },
   "include": ["./src/**/*", "./pdf2json.d.ts"],
-  "exclude": ["babel.config.js", "jest.config.ts",  "./plugins/**/*",
+  "exclude": ["babel.config.js", "jest.config.ts", "Dockerfile.txt",  "./plugins/**/*",
     "./typings/**/*",
     "./built/**/*" ,
     "./coverage/**/*"]
