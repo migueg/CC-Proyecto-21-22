@@ -1,5 +1,6 @@
 import {Converter} from '../src/converterToJSON';
 const fs = require('fs');
+const mocks = require('node-mocks-http');
 const converterToJSON =  new Converter.ConverterToJson(["spanish","english"], "../test/mocks/curriculum.pdf");
 import { cvController } from '../src/controllers/cvController';
 import {CurriculumService} from '../src/services/curriculums.service';
@@ -36,7 +37,7 @@ const fileToBuffer = (path :string) => {
         file = {
             buffer: fileBuffer,
             fieldname: 'file',
-            originalName: 'testCV.pdf',
+            originalname: 'testCV.pdf',
             encoding: '7bit',
             mimetype: 'form-data',
             destination: './files',
@@ -66,13 +67,29 @@ describe('Quiero utilizar la api del sistema',() => {
         describe('upload',() => {
             test('Si subo un pdf debería obtener un código 200',() => {
                 const result = {
-                    originalName: 'testCV.pdf',
+                    success: true,
+                    originalname: 'testCV.pdf',
                     filename: 'testCV.pdf',
                     destination: './files',
                 };
-                jest.spyOn(curriculumService, 'upload').mockImplementation(() => result);
+                //jest.spyOn(curriculumService, 'upload').mockImplementation(() => result);
 
-                expect(curriculumController.upload(file)).toMatchObject(result);
+                const req = mocks.createRequest()
+                req.res = mocks.createResponse()
+                req.headers['Content-Type'] = 'application/pdf';
+
+                var res = curriculumController.upload(file,req,req.res)
+                expect(JSON.parse(res._getData())).toMatchObject(result);
+                expect(res._getStatusCode()).toEqual(200);
+            })
+
+            test('Si la petición no contiene un archivo obtengo un código de error', () => {
+                const req = mocks.createRequest()
+                req.res = mocks.createResponse()
+                req.headers['Content-Type'] = 'application/pdf';
+
+                var res = curriculumController.upload(null,req,req.res)
+                expect(res._getStatusCode()).toEqual(400);
             })
         } )
        
