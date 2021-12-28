@@ -72,8 +72,6 @@ describe('Quiero utilizar la api del sistema',() => {
                     filename: 'testCV.pdf',
                     destination: './files',
                 };
-                //jest.spyOn(curriculumService, 'upload').mockImplementation(() => result);
-
                 const req = mocks.createRequest()
                 req.res = mocks.createResponse()
                 req.headers['Content-Type'] = 'application/pdf';
@@ -91,7 +89,37 @@ describe('Quiero utilizar la api del sistema',() => {
                 var res = curriculumController.upload(null,req,req.res)
                 expect(res._getStatusCode()).toEqual(400);
             })
+
+            test('Si el content-type de la cabecera es incorrecto, obtengo error', () => {
+                const req = mocks.createRequest()
+                req.res = mocks.createResponse()
+                req.headers['Content-Type'] = 'application/json';
+
+                var res = curriculumController.upload(file,req,req.res)
+                expect(res._getStatusCode()).toEqual(400);
+            })
         } )
+
+        describe('Get curriculm', ()=>{
+            const req = mocks.createRequest();
+            req.res = mocks.createResponse();
+
+            test('Si pido un curriculum existente lo obtengo', () => {
+                var res = curriculumController.convert('testCV.pdf',req,req.res);
+                expect(JSON.parse(res._getData()).curriculum).toEqual(expect.any(String))
+                expect(res._getStatusCode()).toEqual(200);
+            })
+
+            test('Si pido un curriculum que no existe obtengo un error', () => {
+                var res = curriculumController.convert('xx.pdf',req,req.res);
+                expect(res._getStatusCode()).toEqual(500);
+            })
+
+            test('Si pido un curriculum en un formato no permitido, obtengo un error', () => { 
+                var res = curriculumController.convert('testCV.txt',req,req.res);
+                expect(res._getStatusCode()).toEqual(400);
+            })
+        })
        
     })
 });
