@@ -1,6 +1,7 @@
 import * as cvSchemas from './Schemas/cvSchema';
 import * as fs from 'fs';
 import { StreamOptions } from 'stream';
+import {logger} from './logger/logger';
 
 var pdf2json : any;
 if(process.env.PWD == "/app/test"){
@@ -221,24 +222,27 @@ export  module Converter{
                 cvIndex +=1;
             }
 
-            cvSchema.competences = this.competences;
-            cvSchema.education = this.education;
-            cvSchema.competences = this.competences;
-            cvSchema.experience = this.experience;
+            cvSchema.competences = this.competences != null || this.competences != undefined || this.competences.length == 0 ? this.competences : this.searchCompetences(pathTofile);
+            cvSchema.education = this.education != null || this.education != undefined || this.education.length == 0 ? this.education : this.searchEducation(pathTofile);
+            cvSchema.experience = this.experience != null || this.experience != undefined || this.experience.length == 0 ? this.experience : this.searchExperiences(pathTofile);
             
             this.cv = cvSchema;
-            
-            console.log(this.cv);
             return this.cv;
         }
         public loadPDF(pathTofile : string) : boolean {
-            this.pdfParser.on("pdfParser_dataError", (errData : any) => {console.error(errData.parserError); return false;});
-            this.pdfParser.on("pdfParser_dataReady", (pdfData: any) => {
-                fs.writeFile("../test/mocks/testCV.txt", this.pdfParser.getRawTextContent(), ()=>{ return true;});
-                fs.writeFile("../test/mocks/testCV.json",  JSON.stringify(pdfData), ()=>{});
-            });
-            this.pdfParser.loadPDF(pathTofile);
-            return true;
+            if(fs.existsSync(pathTofile)){
+                this.pdfParser.on("pdfParser_dataError", (errData : any) => {console.error(errData.parserError); return false;});
+                this.pdfParser.on("pdfParser_dataReady", (pdfData: any) => {
+                    fs.writeFile("../test/mocks/testCV.txt", this.pdfParser.getRawTextContent(), ()=>{ return true;});
+                    fs.writeFile("../test/mocks/testCV.json",  JSON.stringify(pdfData), (errData : any)=>{});
+                });
+                this.pdfParser.loadPDF(pathTofile);
+                return true;
+            }else{
+                return false;
+            }
+          
+            
         }
         public getEducation(): Array<cvSchemas.cvSchemas.education>{
             return this.education;
@@ -253,6 +257,59 @@ export  module Converter{
 
         public getCv(): cvSchemas.cvSchemas.cvSchema{
             return this.cv;
+        }
+
+        public cvToString(): string{
+            let result= "{";
+
+            result += "name: " + this.cv.name;
+            result += "age: " + this.cv.age;
+            result += "birth:" + this.cv.birth;
+            result += "address:" + this.cv.address;
+            result += "description: " + this.cv.description;
+            result += "job:" + this.cv.job;
+            result += "email:" + this.cv.email;
+            result += "number:" + this.cv.number;
+
+            result += "education: ["
+
+            for(let edu of this.cv.education){
+                result += "{";
+                result += "name:" + edu.name;
+                result += "location:" + edu.location;
+                result += "institution:" + edu.institution;
+                result += "endDate:" + edu.endDate;
+                result += "}";
+
+            }
+            result += "]";
+            result += "competeneces: [";
+
+            for(let comp of this.cv.competences){
+                result += "{";
+                result += "technical: "+ comp.technical;
+                result += "personal:"+comp.personal;
+                result += "}"
+            }
+
+            result += "]";
+            result += "experience: [";
+
+            for(let exp of this.cv.experience){
+                result += "{";
+                result += "job:" + exp.job;
+                result += "company:" + exp.company;
+                result += "place:"+ exp.place;
+                result += "startDate:"+exp.startDate;
+                result += "endDate:"+exp.endDate;
+                result += "description:"+exp.description;
+                result += "}"
+
+            }
+
+            result += "]";
+           
+            return result;
         }
         
     }
