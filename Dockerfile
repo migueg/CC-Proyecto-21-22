@@ -8,8 +8,8 @@ RUN  apk update && apk upgrade  && rm -rf node_modules \
     && mkdir -p /app/coverage \
     && mkdir -p /app/test/coverage \
     && mkdir -p /app/test/src \
-    && mkdir -p /app/test/src/logger \
-    && mkdir -p /app/node_modules
+    && mkdir -p /app/node_modules \
+    && mkdir -p /app/test/logs
     
    
    
@@ -18,9 +18,10 @@ RUN  apk update && apk upgrade  && rm -rf node_modules \
 ENV PATH="/app/node_modules/.bin:${PATH}"
 
 RUN npm config set unsafe-perm true
-RUN chown -R node.node  /app  \
-    && chown -R node.node  /app/coverage \
-     && chown -R node.node /app/node_modules 
+RUN chown -R node:node  /app  \
+    && chown -R node:node  /app/test/coverage \
+    && chown -R node:node  /app/coverage \
+     && chown -R node:node /app/node_modules 
     
 #Change user not root 
 USER node
@@ -34,8 +35,9 @@ RUN npm ci \
 
 WORKDIR /app/test
 
-RUN chown -R node.node /app/test/coverage \
-    &&   chown -R node:node   /app/test/src 
+RUN chown -R node:node /app/test/coverage \
+    &&   chown -R node:node   /app/test/src \
+     &&   chown -R node:node   /app/test/src 
    
 CMD ["npm","test"] 
 
