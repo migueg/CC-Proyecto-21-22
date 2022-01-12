@@ -1,8 +1,45 @@
+import {ApplyOfferResponseDto} from './dtos/apply-offer-response.dto'
+import { ApplyOfferDto } from 'src/dtos/apply-offer.dto';
 export module offers {
     export type infoOffer = {
         name: string;
         company: string;
         other: Array<string>;
+    }
+
+    export class JobOffers{
+
+        private offers : Array<JobOffer>
+        constructor(){
+
+        }
+
+        public applyOffer(applyOfferDto : ApplyOfferDto){
+            let response : ApplyOfferResponseDto;
+
+            response = new ApplyOfferResponseDto();
+            
+            response.status = 'Not implemented'
+            response.message = 'Not implemented';
+            response.id = "";
+
+            return response;
+        }
+t
+        public getAfinity(offerId:string){
+            let response : ApplyOfferResponseDto;
+
+            response = new ApplyOfferResponseDto();
+            
+            response.status = 'Not implemented'
+            response.message = 'Not implemented';
+            response.id = "";
+
+            return response;
+        }
+        public getOffers(userId : string) : void {
+
+        }
     }
     export class JobOffer{
         private afinity : number;
@@ -39,5 +76,10 @@ export module offers {
         public setCriteria(criteria: object|undefined){
             this.criteria = criteria;
         }
+
+        public apply(): ApplyOfferResponseDto | any {
+
+        }
+        
     }
 }
