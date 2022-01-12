@@ -3,17 +3,18 @@ LABEL version="0.1.0" maintainer="miguegarciatenorio@gmail.com" nodeversion=$VER
 
 #Update container and grant permission to new user
 RUN  apk update && apk upgrade  && rm -rf node_modules \
-    && adduser -S migue  \
-    && mkdir /app  \
-    && mkdir /app/test \
-    && mkdir /app/coverage \
-    && mkdir /app/test/coverage \
-    && mkdir /app/test/src \
-    && mkdir /app/test/src/logger \
-    && chmod 777 /app  \
-    && chmod 777 /app/test/coverage \
-    && chmod 777  /app/coverage \
-    &&  chmod 777  /app/test/src
+    && mkdir -p /app  \
+    && mkdir -p /app/test \
+    && mkdir -p /app/coverage \
+    && mkdir -p /app/test/coverage \
+    && mkdir -p /app/test/src \
+    && mkdir -p /app/test/src/logger \
+    && mkdir -p /app/node_modules\
+    && chown -R node:node  /app  \
+    && chown -R node:node /app/test/coverage \
+    && chown -R node:node  /app/coverage \
+    &&  chown -R node:node   /app/test/src \
+    && chown -R node:node /app/node_modules 
 
    
    
@@ -22,13 +23,15 @@ RUN  apk update && apk upgrade  && rm -rf node_modules \
 ENV PATH="/app/node_modules/.bin:${PATH}"
 
 #Change user not root 
-USER migue
+USER node
 
 WORKDIR /app
 
 COPY package*.json  ./
 RUN npm ci \
     && npm cache clean --force
+
+
 
 
 WORKDIR /app/test
