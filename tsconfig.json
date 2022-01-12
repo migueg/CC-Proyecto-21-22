@@ -16,11 +16,13 @@
     "noImplicitAny": false,
     "strictBindCallApply": false,
     "forceConsistentCasingInFileNames": false,
-    "noFallthroughCasesInSwitch": false
+    "noFallthroughCasesInSwitch": false,
+    "moduleResolution" : "node",
   },
   "include": ["./src/**/*", "./pdf2json.d.ts"],
   "exclude": ["babel.config.js", "jest.config.ts", "Dockerfile.txt",  "./plugins/**/*",
     "./typings/**/*",
     "./built/**/*" ,
-    "./coverage/**/*"]
+    "./coverage/**/*",
+    "./node_modules/pdf2json/pdfparser.js"]
 }

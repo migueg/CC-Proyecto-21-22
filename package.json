@@ -4,11 +4,12 @@
   "description": "Este repositorio contiene el proyecto realizado para las prácticas de la asignatura *Cloud Computing del Máster de Ingeniería Informática de la UGR* por @migueg.",
   "main": "index.js",
   "scripts": {
-    "all": "npm install && npm run prestart",
+    "all": "npm run prestart && npm start",
     "run-docker": "docker run -t -v `pwd`:/app/test migueg/cc-proyecto-21-22:latest",
-    "test": "jest",
+    "test": "jest --verbose",
     "compile": "tsc",
-    "prestart": "npm run test && npm run compile",
+    "prestart": "npm run build && npm run test",
+     "buid": "nest build",
     "start": "nest start"
   },
   "repository": {
@@ -29,6 +30,7 @@
     "@nestjs/cli": "^8.1.6",
     "@nestjs/platform-express": "^8.2.4",
     "@nestjs/testing": "^8.2.4",
+    "@tsconfig/node10": "^1.0.8",
     "@types/jest": "^27.0.2",
     "@types/node": "^16.11.6",
     "babel-jest": "^27.3.1",
