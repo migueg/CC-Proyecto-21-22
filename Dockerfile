@@ -6,9 +6,15 @@ RUN  apk update && apk upgrade  && rm -rf node_modules \
     && adduser -S migue  \
     && mkdir /app  \
     && mkdir /app/test \
+    && mkdir /app/coverage \
     && mkdir /app/test/coverage \
-    && chown -R migue /app  \
-    && chown -R migue /app/test/coverage
+    && mkdir /app/test/src \
+    && mkdir /app/test/src/logger \
+    && chmod 777 /app  \
+    && chmod 777 /app/test/coverage \
+    && chmod 777  /app/coverage \
+    &&  chmod 777  /app/test/src
+
    
    
 
