@@ -9,6 +9,7 @@ import {OfferService} from '../src/services/offer.service';
 import {Test} from '@nestjs/testing';
 import { FindOfferDto } from '../src/dtos/find-offer.dto';
 import { ApplyOfferDto } from '../src/dtos/apply-offer.dto';
+import { ConfigModule, ConfigService } from '@nestjs/config';
 
 var streamBuffers = require('stream-buffers');
 
@@ -60,7 +61,17 @@ describe('Quiero utilizar la api del sistema',() => {
         beforeEach(async () =>{
             const moduleTest = await Test.createTestingModule({
                 controllers: [cvController],
-                providers: [CurriculumService],
+                providers: [CurriculumService , {
+                    provide: ConfigService,
+                    useValue:  { 
+                        get: jest.fn((key : string) => {
+                            if(key === 'routesCV'){
+                                return 'routes'
+                            }
+                        })
+                    }
+                }]
+                
             }).compile()
          
 
@@ -134,7 +145,16 @@ describe('Quiero utilizar la api del sistema',() => {
         beforeEach(async () =>{
             const moduleTest = await Test.createTestingModule({
                 controllers: [offerController],
-                providers: [OfferService],
+                providers: [OfferService, {
+                    provide: ConfigService,
+                    useValue:  { 
+                        get: jest.fn((key : string) => {
+                            if(key === 'routesCV'){
+                                return 'routes'
+                            }
+                        })
+                    }
+                }],
             }).compile()
         
 
@@ -291,7 +311,7 @@ describe('Quiero utilizar la api del sistema',() => {
                 req.res = mocks.createResponse();
 
                 req.headers['Content-Type'] = 'application/json'
-                
+
                 applyOfferDto.id = ""
 
                 var res = offerControl.applyOffer(applyOfferDto,req,req.res);
