@@ -1,11 +1,20 @@
-import { Body, Controller, Get, HttpStatus, Param, Post, Req, Res, UploadedFile, UseInterceptors  } from '@nestjs/common';
+import { Body, Controller, Get, HttpStatus, Injectable,Param, Post, Req, Res, UploadedFile, UseInterceptors  } from '@nestjs/common';
 import {CurriculumService} from '../services/curriculums.service'
 import { FileInterceptor} from '@nestjs/platform-express';
 import {logger} from '../logger/logger';
+import { ConfigService } from '@nestjs/config'
+import {ROUTES} from '../routes/routes' 
 
+@Injectable()
 @Controller('curriculum')
 export class cvController {
-    constructor(private readonly curriculumService: CurriculumService) {} 
+    routes : any
+    constructor(private readonly curriculumService: CurriculumService, 
+      private configService: ConfigService ) {
+        const config = configService
+        const routes = require('../routes/'+ configService.get('routesCV')).ROUTES.UPLOAD;
+
+      } 
   
   
     @Post('upload')
