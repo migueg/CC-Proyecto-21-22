@@ -22,7 +22,7 @@ RUN npm config set unsafe-perm true
     
 #Change user not root 
 
-RUN chown -R node:node /app
+RUN chown -R node:node /app && chmod -R  777 /app
 
 USER node:node
 
