@@ -24,7 +24,7 @@ RUN npm config set unsafe-perm true
 
 RUN chown -R node:node /app
 
-USER node
+USER node:node
 
 
 WORKDIR /app
