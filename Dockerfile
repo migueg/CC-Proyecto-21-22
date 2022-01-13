@@ -9,8 +9,8 @@ RUN  apk update && apk upgrade  && rm -rf node_modules \
     && mkdir -p /app/test/coverage \
     && mkdir -p /app/test/src \
     && mkdir -p /app/node_modules \
-    && mkdir -p /app/test/logs
-    
+    && mkdir -p /app/test/logs \
+    && mkdir -p /app/test/src/logger 
    
    
 
