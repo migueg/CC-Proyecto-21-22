@@ -2,6 +2,12 @@
 entidad: 
   - src/converterToJSON.ts
 lenguaje: typescript
-test: test/converter.test.ts
+test: 
+  - test/converter.test.ts
+  - test/apit.test.ts
 fichero_tareas: package.json
+make:
+  - npm run build
+  - npm run install
+
 
