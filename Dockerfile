@@ -18,13 +18,14 @@ RUN  apk update && apk upgrade  && rm -rf node_modules \
 ENV PATH="/app/node_modules/.bin:${PATH}"
 
 RUN npm config set unsafe-perm true
-RUN chown -R node:node  /app  \
-    && chown -R node:node  /app/test/coverage \
-    && chown -R node:node  /app/coverage \
-     && chown -R node:node /app/node_modules 
+
     
 #Change user not root 
+
+RUN chown -R node:node /app
+
 USER node
+
 
 WORKDIR /app
 
@@ -32,12 +33,9 @@ COPY package*.json  ./
 RUN npm ci \
     && npm cache clean --force
 
-
 WORKDIR /app/test
 
-RUN chown -R node:node /app/test/coverage \
-    &&   chown -R node:node   /app/test/src \
-     &&   chown -R node:node   /app/test/src 
+
    
 CMD ["npm","test"] 
 
