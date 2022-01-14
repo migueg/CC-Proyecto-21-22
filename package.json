@@ -11,7 +11,7 @@
     "prestart": "npm run build && npm run test",
     "build": "nest build",
     "start": "nest start",
-    "install": "tsc"
+    "install": ""
   },
   "repository": {
     "type": "git",
