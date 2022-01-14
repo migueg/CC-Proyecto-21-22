@@ -4,7 +4,7 @@ entidad:
 lenguaje: typescript
 test: 
   - test/converter.test.ts
-  - test/apit.test.ts
+  - test/api.test.ts
 fichero_tareas: package.json
 make: npm run 
   
