@@ -6,8 +6,7 @@ test:
   - test/converter.test.ts
   - test/apit.test.ts
 fichero_tareas: package.json
-make:
-  - npm run start
+make: npm run start
   
 
 
