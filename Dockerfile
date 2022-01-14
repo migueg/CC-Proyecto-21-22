@@ -22,10 +22,7 @@ RUN npm config set unsafe-perm true
     
 #Change user not root 
 
-RUN chown -R node:node /app && chmod -R  777 /app
-
-USER node:node
-
+RUN chown -R root:root /app && chmod -R  777 /app
 
 WORKDIR /app
 
@@ -34,7 +31,6 @@ RUN npm ci \
     && npm cache clean --force
 
 WORKDIR /app/test
-
 
    
 CMD ["npm","test"] 
