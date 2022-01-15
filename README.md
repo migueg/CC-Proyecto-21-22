@@ -15,8 +15,8 @@ El objetivo de este hito era principalmente la creación un microservicio. Todo 
 * [Elección del framework para el microservicio](/DOC/serviceFramework.md)
 * [Diseño de la API](/DOC/API.md)
 * [Configuración distribuida](/DOC/configuracion.md)
-* [Uso de logs]()
-* [Tests]()
+* [Uso de logs](/DOC/logs.md)
+* [Tests](/DOC/testApi.md)
 
 
 ## Anteriores hitos
