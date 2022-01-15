@@ -13,8 +13,9 @@ La lógica de negocio que va a comprender la solución propuesta puede consultar
 El objetivo de este hito era principalmente la creación un microservicio. Todo el proceso que ha conllevado la creación del microservicio se puede consultar a través de los siguientes enlaces:
 
 * [Elección del framework para el microservicio](/DOC/serviceFramework.md)
-* [Diseño de la API]()
-* [Confiugarción distribuida]()
+* [Diseño de la API](/DOC/API.md)
+* [Configuración distribuida](/DOC/configuracion.md)
+* [Uso de logs]()
 * [Tests]()
 
 
